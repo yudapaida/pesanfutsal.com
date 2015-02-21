@@ -37,7 +37,7 @@ class Login_ctr extends CI_Controller {
 			echo "operator";
 		}
 		if($data == "user"){
-			redirect('page_ctr/daftar_tempat');	
+			redirect('member');	
 			echo "user";
 		}
 		else{

@@ -31,11 +31,19 @@
 									<strong>PESANFUTSAL.com</strong>
 								</div>
 							</div>
-							<div class="menu-member">
-								<a href="<?= base_url('page_ctr/login_page');?>">LOGIN</a>
+								<?php if($this->session->userdata('akun')){ ?>
+								<div class="menu-member">
+								<a href="<?= base_url('page_ctr/member_area');?>">Member Area</a>
 								/
-								<a href="<?= base_url('page_ctr/user_reg');?>">REGISTER</a>
+								<a href="<?= base_url('login_ctr/logout');?>">Logout</a>
 							</div>
+							<?php } else { ?>
+							<div class="menu-member">
+								<a href="<?= base_url('page_ctr/login_page');?>">Login</a>
+								/
+								<a href="<?= base_url('page_ctr/user_reg');?>">Register</a>
+							</div>
+							<?php } ?>
 						</div>
 					</header>
 				</div>
