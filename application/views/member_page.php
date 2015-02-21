@@ -1,0 +1,1 @@
+Selamat datang <?php echo $this->session->userdata('akun');?> di member page :D

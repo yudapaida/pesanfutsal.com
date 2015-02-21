@@ -1,0 +1,124 @@
+.gerai .gerai-logo {
+	width: 100px;
+}
+.gerai-logo img {
+	max-width: 100%;
+}
+.gerai-new .gerai-inner {
+	position: relative;
+	/*z-index: 1;*/
+}
+.gerai-new .new-badge {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.gerai-new .gerai-info {
+	margin-right: 60px;
+}
+#page-loaded {
+	margin-left: 30px;
+	font-size: 12px;
+	color: #999;
+}
+#jenis-resto {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 40px;
+}
+#jenis-resto li {
+	float: left;
+	border-right: 1px dotted #666;
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+#jenis-resto li:last-child {
+	border-right: none;
+}
+.gerai-info h2 a {
+	color: #333;
+}
+
+
+
+#area-kirim .cols {
+	margin-bottom: 5px !important;
+}
+#area-kirim .panel-heading {
+	color: #333;
+	background-color: #f5f5f5;
+	background-image: url('../images/bg-list.png');
+	background-position: calc(100% - 0px);
+	background-repeat: no-repeat;
+}
+#area-kirim .panel-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 14px;
+	color: inherit;
+}
+#area-kirim .panel-title i {
+	color: white;
+}
+#area-kirim .panel-group .panel {
+	margin-bottom: 0px;
+	border-radius: 0px;
+	overflow: hidden;
+	margin-top: 0px !important;
+}
+#area-kirim .panel-default {
+	border-color: #ddd;
+}
+#area-kirim .panel-body {
+	padding: 0px;
+}
+#area-kirim .panel {
+	margin-bottom: 20px;
+	background-color: #fff;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
+}
+#area-kirim .list-group-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin: 0px !important;
+	background-color: #fff;
+	border: 0px solid #ddd !important;
+	border-bottom: 1px solid #ddd !important;
+}
+#area-kirim .list-group-item:first-child {
+	border-radius: 0px !important;
+}
+#area-kirim .list-group-item:last-child {
+	margin-bottom: 0;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+#area-kirim .panel-heading {
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+#area-kirim .map {
+	margin-bottom: 30px;
+}
+
+#search-top {
+	text-align: left;
+}
+#search-top .btn {
+	margin-left: 0;
+}
+
+.thumb-list li:nth-child(2n+3) {
+	clear: left;
+}
+
+img.map {
+	max-width: 100%;
+}
