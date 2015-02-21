@@ -1,6 +1,13 @@
+<!DOCTYPE html>
+
+<?php 
+foreach ($futsal as $item ){
+	
+?>
+
 <div class="top-content">
 	<div class="page-title">
-		<h1>Abaddon</h1>
+		<h1><?php echo strtoupper($item['nama_futsal']); ?></h1>
 	</div>
 </div>
 <br><br>
@@ -13,9 +20,9 @@
 						<p>
 							<a href="<?= base_url();?>">HOME</a>
 							<i class="fa fa-angle-right"></i>
-							<a href="<?= base_url('page_ctr/daftar_tempat');?>">TEMPAT FUTSAL</a>
+							<a href="<?= base_url('futsal/listfutsal');?>">LIST FUTSAL</a>
 							<i class="fa fa-angle-right"></i>
-							<span class="current">ABADDON</span>
+							<span class="current"><?php echo strtoupper($item['nama_futsal']); ?></span>
 						</p>
 					</div>
 				</div>
@@ -29,15 +36,15 @@
 									<div class="col-md-7">
 										<div class="gerai-header clearfix">
 											<div class="gerai-logo">
-												<img src="<?= base_url('assets/image/Abaddon.jpg');?>">
+												<img src="<?= base_url('assets/image/'.$item['gambar']);?>">
 											</div>
 											<div class="gerai-info">
 												<h2 class="gerai-name">
-													Abaddon
+													<?php echo strtoupper($item['nama_futsal']); ?>
 												</h2>
 												<ul>
 													<li><strong>Kota Futsal</strong></li>
-													<li><strong>Alamat</strong></li>
+													<li><strong><?php echo strtoupper($item['alamat']); ?></strong></li>
 													<li><strong>Phone</strong></li>
 													<li><strong>No Rekening</strong></li>
 												</ul>
@@ -254,6 +261,8 @@
 									</div>
 								</div>
 							</div>
+<?php } ?>
+							<!-- Jadwal Block -->
 							<div class="gerai-menu" id="menu">
 								<div class="row">
 									<div id="gerai-menu-main" class="col-md-15" style="margin-left: 0px;">
@@ -261,6 +270,9 @@
 											<div class="section-title">
 												<h2><span>JADWAL</span></h2>
 											</div>
+											<!-- Date Picker -->
+
+
 											<div id="menu">
 												<table>
 													<thead>

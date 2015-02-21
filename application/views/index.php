@@ -46,7 +46,7 @@
 						<p>fgkgkkkbkbbkbkigkigkxtgtrshyc</p>
 						<p>jdkashkdnhaldnaendflanldnaldnal</p>
 						<div class="buttons">
-							<a href="<?php echo base_url('page_ctr/daftar_tempat');?>"  class="btn btn-lg btn-primary">
+							<a href="<?php echo base_url('futsal/listfutsal');?>"  class="btn btn-lg btn-primary">
 							<i class="glyphicon glyphicon-list-alt"></i>
 							Daftar Tempat Futsal
 							</a>

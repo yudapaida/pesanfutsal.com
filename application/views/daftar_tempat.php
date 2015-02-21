@@ -73,7 +73,7 @@
 													</a>
 												</div>
 												<div class="gerai-action">
-													<a href="<?= base_url('page_ctr/tempat_futsal');?>?id=<?php echo $item['id_futsal']; ?>" class="btn btn-block btn-success">LIHAT JADWAL</a>
+													<a href="<?= base_url('futsal/profile');?>?id=<?php echo $item['id_futsal']; ?>" class="btn btn-block btn-success">LIHAT JADWAL</a>
 												</div>
 											</div>
 										</div>

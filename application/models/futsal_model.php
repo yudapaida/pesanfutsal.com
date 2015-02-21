@@ -11,4 +11,16 @@
 		return $query->result_array();
 	}
 
+	public function jadwal_futsal($id_futsal){
+		$query = "SELECT * FROM lapangan WHERE id_futsal='$id_futsal' ORDER BY nama_lap"; 
+		$data = $this->db->query($query);
+		return $data->result_array(); 
+	}
+
+	public function profile_futsal($id_futsal){
+		$query = "SELECT * FROM operator WHERE id_futsal='$id_futsal'";
+		$data = $this->db->query($query);
+		return $data->result_array();
+	}
+
 }
