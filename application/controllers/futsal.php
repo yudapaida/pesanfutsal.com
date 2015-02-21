@@ -41,14 +41,10 @@ class Futsal extends CI_Controller
 		// data tempat futsal 
 			$futsal = $this->futsal_model->profile_futsal($id_futsal);
 
-	    // data lapangan
-			$lapangan = $this->futsal_model->jadwal_futsal($id_futsal);
-			
-		// parsing dua tabel
+	   	
+		// parsing data
 			$data['futsal'] = $futsal;
-			$data['lapangan'] = $lapangan; 			
-
-
+		 			
 			$this->load->view('header');
 			$this->load->view('tempat_futsal',$data);
 			$this->load->view('footer');

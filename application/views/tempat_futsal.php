@@ -1,4 +1,63 @@
 <!DOCTYPE html>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/ui-lightness/ui.all.css');?>" />
+    <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
+	<script type="text/javascript">
+	    $(function(){
+	            $("#tglbooking").datepicker({
+	                dateFormat : "yy-mm-dd",
+	                changeMonth : true,
+	                changeYear : true,
+	                yearRange : '-50:+50',
+	                onSelect : function(dateText){
+	             		var tgl=dateText;
+	             		var id="<?php echo $futsal[0]['id_futsal'];?>";
+	                	$.ajax({
+	                		type: "POST",
+	                		url:"<?php echo site_url('jadwal/lihat_jadwal');?>",
+	                		data:{id:id, tgl:tgl},
+	                		success: function(data){
+	                			$("#jadwal").html(data);
+	                		},
+
+	                		error:function(XMLHttpRequest){
+                    		alert(XMLHttpRequest.responseText);
+                			}
+	                	})
+	                
+	                }
+	            });
+	        });
+
+	</script>
+	<script type="text/javascript">
+//perhatikan, kuncinya adalah disini
+        function fungsiambiljad(){
+        	var tgl=$("#tglbooking").datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        	var id_futsal =<?php echo $futsal[0]['id_futsal']; ?>;
+        	alert(tgl " dan " id_futsal);
+
+
+           // $.ajax({
+           //      type: "POST",
+           //      url: "<?php echo site_url('jadwal/lihat_jadwal');?>",
+           //      data:{id:id_futsal, tgl:},
+           //      success: function(data){
+           //          $("#kab").html(data);
+           //      },
+ 
+           //      error:function(XMLHttpRequest){
+           //          alert(XMLHttpRequest.responseText);
+           //      }
+ 
+           //  })
+ 
+        };
+	</script>
+
+
 
 <?php 
 foreach ($futsal as $item ){
@@ -271,9 +330,28 @@ foreach ($futsal as $item ){
 												<h2><span>JADWAL</span></h2>
 											</div>
 											<!-- Date Picker -->
+											<div class="col-xs-6 col-md-3 ">
+												<p>
+												<form action="#">
 
+													<?php
+													$data = array(
+														'id' => 'tglbooking',
+														'name' => 'tgl_booking',
+														'placeholder' => 'Pilih Tanggal',
+														'class' => 'form-control'
+														);
 
-											<div id="menu">
+													echo form_input($data);
+													?>
+												</form>
+												</p>
+											</div>
+											
+											<p></p>
+											<p></p>
+
+											<div id="jadwal">
 												<table>
 													<thead>
 														<tr>
