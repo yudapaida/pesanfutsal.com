@@ -83,7 +83,7 @@
 							<!-- List tempat futsal -->
 
 							<div id="listfutsal">
-							</div>
+							
 
 							<?php 
 								$i=0;
@@ -101,7 +101,7 @@
 											</div>
 											<div class="gerai-main">
 												<div class="gerai-thumb coba">
-													<a href="<?= base_url('page_ctr/tempat_futsal');?>">
+													<a href="<?= base_url('futsal/profile');?>?id=<?php echo $item['id_futsal']; ?>">
 														<img src="<?php echo base_url('assets/image/'.$item['gambar']);?>">
 													</a>
 												</div>
@@ -113,7 +113,8 @@
 									</div>
 								<?php $i++; } ?>
 
-								
+								</div>
+
 									</div>
 								</div>
 							</div>

@@ -14,7 +14,7 @@ class Filterfutsal extends CI_Controller
 		$keyword = $this->input->post('keyword');
 
 		$this->load->model('futsal_model');
-		$data = $this->futsal_model->cari_futsal($keyword);	
+		$futsal = $this->futsal_model->cari_futsal($keyword);	
 
 
 								$i=0;
@@ -41,7 +41,7 @@ echo									'<div class="gerai col-md-4 gerai-new masonry-brick" style="positio
 												</div>
 											</div>
 										</div>
-									</div>'
+									</div>';
 
 								 $i++; 
 								} 
