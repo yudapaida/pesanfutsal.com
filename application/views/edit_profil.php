@@ -1,3 +1,18 @@
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/ui-lightness/ui.all.css');?>" />
+    <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#tanggal").datepicker({
+                dateFormat : "yy-mm-dd",
+                changeMonth : true,
+                changeYear : true,
+                yearRange : '-66:+60'
+            });
+        });
+    </script>
 <div id="primary">
 	<content id="site-content">		
 		<div class="page-main">

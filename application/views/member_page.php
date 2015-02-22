@@ -42,7 +42,7 @@
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
 										<?php if($row['status'] !="booked"): ?>
-										<td><a href="#" class="btn btn-success">Konfirmasi</a></td>
+										<td><a href="<?= base_url('member/konfirmasi');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi</a></td>
 										<?php else : ?>
 										<td>Sudah Dikonfirmasi</td>
 										<?php endif; ?>

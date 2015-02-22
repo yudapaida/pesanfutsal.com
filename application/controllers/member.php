@@ -58,5 +58,14 @@
 				redirect('member');
 			}
 		}
+		public function konfirmasi()
+		{
+			$id_transaksi = $_GET['no'];
+			$data = $this->member_model->konfirmasi_bayar($id_transaksi);
+			$data['transaksi'] = $data;
+			$this->load->view('header');
+			$this->load->view('konfirmasi_bayar',$data);
+			$this->load->view('footer');
+		}
 	}
 ?>

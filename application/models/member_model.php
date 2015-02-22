@@ -61,18 +61,29 @@
 			foreach ($old_pass->result() as $key) {
 				$coba = $key->password;
 			}
+			$pass_lama = md5($pass_lama);
 			if ($pass_lama != $coba) {
+				// echo "password lama beda";
 				redirect('member/password');
 			}
-			// elseif ($pass_baru != $pass_baru2) {
-			// 	redirect('member/password');
-			// }
+			elseif ($pass_baru != $pass_baru2) {
+				// echo "password baru beda";
+				redirect('member/password');
+			}
 			else {
 				$query = "UPDATE user SET password=md5('$pass_baru') WHERE username='$username'";
 				$data = $this->db->query($query);
 				// redirect('member');
 				return TRUE;
 			}
+		}
+
+		public function konfirmasi_bayar($id_transaksi)
+		{
+			$username = $this->session->userdata('akun');
+			$query = "SELECT transaksi.id_transaksi, member.first_name as 'first' , member.last_name as 'last', operator.nama_futsal as 'futsal', lapangan.nama_lap as 'lapangan', transaksi.jam as 'jam' ,transaksi.harga as 'harga', transaksi.nama_team as'team' FROM member,operator,lapangan,transaksi,user WHERE user.id_user=member.id_user AND member.id_member=transaksi.id_member AND operator.id_futsal=transaksi.id_futsal AND transaksi.id_lapangan=lapangan.id_lap AND transaksi.id_transaksi=$id_transaksi AND username='$username' order by id_transaksi";
+			$data = $this->db->query($query);
+			return $data->result_array();
 		}
 	}
 ?>
