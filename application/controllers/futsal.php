@@ -85,5 +85,4 @@ class Futsal extends CI_Controller
 	}
 
 
-
 }

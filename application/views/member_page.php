@@ -27,6 +27,7 @@
 										<th>NAMA</th>
 										<th>LOKASI FUTSAL</th>
 										<th>LAPANGAN</th>
+										<th>TGL</th>
 										<th>JAM</th>
 										<th>HARGA</th>
 										<th>KONFIRMASI</th>
@@ -39,6 +40,7 @@
 										<td><?= $row['first'];?> <?= $row['last'];?></td>
 										<td><?= $row['futsal']; ?></td>
 										<td><?= $row['lapangan']; ?></td>
+										<td><?= $row['tgl']; ?></td>
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
 										<?php if($row['status'] !="booked"): ?>
