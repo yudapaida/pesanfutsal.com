@@ -34,7 +34,7 @@ class Login_ctr extends CI_Controller {
 		}
 		if($data == "operator"){
 			// redirect('lapangan_crud/view_lap');
-			echo "operator";
+			redirect('admin');
 		}
 		if($data == "user"){
 			redirect('futsal/listfutsal');

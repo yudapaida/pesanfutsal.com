@@ -39,6 +39,11 @@
 										<input type="text" name="lapangan" value="<?= $row['lapangan']; ?>" class="form-control" readonly>
 									</p>
 									<p>
+										<label>Tanggal Booking<span class="text-danger">*</span></label>
+										<br>
+										<input type="text" name="tgl_booking" value="<?= $row['tgl']; ?>" class="form-control" readonly>
+									</p>
+									<p>
 										<label>Jam Mulai<span class="text-danger">*</span></label>
 										<br>
 										<input type="text" name="jam_mulai" value="<?= $row['jam']; ?>" class="form-control" readonly>

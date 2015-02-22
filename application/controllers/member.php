@@ -11,7 +11,7 @@
 			$this->load->model('member_model');
 			if(!$this->session->userdata('akun'))
 			{
-				redirect('page_ctr/login_page');
+				redirect('futsal/login');
 			}
 		}
 
