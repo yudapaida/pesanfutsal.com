@@ -26,6 +26,28 @@
  
         };
 	</script>
+	<script type="text/javascript">
+		//perhatikan, kuncinya adalah disini
+        function fungsifilter(kota){
+        	
+           $.ajax({
+                type: "POST",
+                url: "<?php echo site_url('filterfutsal/filter');?>",
+                data:"id_kota="+kota,
+                success: function(data){
+                    $("#listfutsal").html(data); 
+                    // alert(data);                   
+                },
+ 
+                error:function(XMLHttpRequest){
+                    // alert(XMLHttpRequest.responseText);
+                    alert('gagal');
+                }
+            })
+ 
+        };
+	</script>
+
 
 <div class="top-content">
 	<div class="home-top-content">
@@ -34,7 +56,7 @@
 				<!-- <input type="hidden" name="action" value="restoran.list"> -->
 					<span class="form-inputs">
 						<?php
-						$js=''; 
+						$js='onChange="fungsifilter(this.value);"'; 
 						echo form_dropdown('lokasi',$kota['kota'],'',$js);
 						?>
 					</span>	
@@ -66,7 +88,7 @@
 									<form action="#">
 										<div class="filter-menu">
 											<?php
-											$js=''; 
+											$js='onChange="fungsifilter(this.value);"'; 
 											echo form_dropdown('lokasi',$kota['kota'],'',$js);
 											?>
 										</div>

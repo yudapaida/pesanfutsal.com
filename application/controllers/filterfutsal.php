@@ -23,7 +23,7 @@ class Filterfutsal extends CI_Controller
 
 								if($i>=$i+3){echo $row;}else{ }	
 
-echo									'<div class="gerai col-md-4 gerai-new masonry-brick" style="position: relative;">
+						echo		'<div class="gerai col-md-4 gerai-new masonry-brick" style="position: relative;">
 										<div class="gerai-inner">
 											<div class="gerai-header clearfix">
 												<div class="gerai-info">
@@ -45,5 +45,44 @@ echo									'<div class="gerai col-md-4 gerai-new masonry-brick" style="positio
 
 								 $i++; 
 								} 
+	}
+
+	public function filter()
+	{
+		$id_kota = $this->input->post('id_kota');
+		
+		$this->load->model('futsal_model');
+		$futsal = $this->futsal_model->filter_futsal($id_kota);
+
+		
+								$i=0;
+								$row='<div class="row">';
+								foreach ($futsal as $item) {									
+
+								if($i>=$i+3){echo $row;}else{ }	
+
+						echo		'<div class="gerai col-md-4 gerai-new masonry-brick" style="position: relative;">
+										<div class="gerai-inner">
+											<div class="gerai-header clearfix">
+												<div class="gerai-info">
+													<h2><a href="'.base_url('page_ctr/tempat_futsal').'">'.$item['nama_futsal'].'</a></h2>
+												</div>
+											</div>
+											<div class="gerai-main">
+												<div class="gerai-thumb coba">
+													<a href="'.base_url('page_ctr/tempat_futsal').'">
+														<img src="'.base_url('assets/image/'.$item['gambar']).'">
+													</a>
+												</div>
+												<div class="gerai-action">
+													<a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'" class="btn btn-block btn-success">LIHAT JADWAL</a>
+												</div>
+											</div>
+										</div>
+									</div>';
+
+								 $i++; 
+								} 
+
 	}
 }
