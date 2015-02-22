@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "page_ctr";
+$route['default_controller'] = "futsal";
 $route['404_override'] = '';
 
 

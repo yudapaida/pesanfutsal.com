@@ -37,8 +37,7 @@ class Login_ctr extends CI_Controller {
 			echo "operator";
 		}
 		if($data == "user"){
-			redirect('futsal/listfutsal');	
-			echo "user";
+			redirect('futsal/listfutsal');
 		}
 		else{
 			// redirect('page_ctr/index');

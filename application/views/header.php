@@ -45,7 +45,7 @@
 							</div>
 							<?php if($this->session->userdata('akun')){ ?>
 								<div class="menu-member">
-								<a href="<?= base_url('futsal/memberarea');?>">Member Area</a>
+								<a href="<?= base_url('member');?>">Member Area</a>
 								/
 								<a href="<?= base_url('login_ctr/logout');?>">Logout</a>
 							</div>

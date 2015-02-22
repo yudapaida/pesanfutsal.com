@@ -31,11 +31,18 @@
 									<strong>PESANFUTSAL.com</strong>
 								</div>
 							</div>
+								<?php if($this->session->userdata('akun')){ ?>
+								<div class="menu-member">
+								<a href="<?= base_url('member');?>">Member Area</a>
+								/
+								<a href="<?= base_url('login_ctr/logout');?>">Logout</a>
+							</div>
+							<?php } else { ?>
 							<div class="menu-member">
 								<a href="<?= base_url('futsal/login');?>">LOGIN</a>
-								/
 								<a href="<?= base_url('futsal/register');?>">REGISTER</a>
 							</div>
+							<?php } ?>
 						</div>
 					</header>
 				</div>

@@ -1117,13 +1117,22 @@ select {
 }
 .gerai-detail .menu-list table td:nth-child(2) {
 	text-align: center;
-	font-weight: bold;
-	color: #008000;
+	/*font-weight: bold;*/
+	/*color: #008000;*/
 }
 .gerai-detail .menu-list table td:nth-child(3) {
 	text-align: center;
 }
 .gerai-detail .menu-list table td:nth-child(4) {
+	text-align: center;
+}
+.gerai-detail .menu-list table td:nth-child(5) {
+	text-align: center;
+}
+.gerai-detail .menu-list table td:nth-child(6) {
+	text-align: center;
+}
+.gerai-detail .menu-list table td:nth-child(7) {
 	text-align: center;
 }
 .gerai-detail .menu-list table td .btn {
@@ -1323,6 +1332,11 @@ select {
 .member-header h1 {
 	margin: 0 0 10px;
 	font-size: 30px;
+	font-weight: bold;
+}
+.member-header h2{
+	margin: 0 0 10px;
+	font-size: 20px;
 	font-weight: bold;
 }
 .member-header .user {
