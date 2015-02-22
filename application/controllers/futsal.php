@@ -9,6 +9,28 @@ class Futsal extends CI_Controller
 		parent::__construct();
 	}
 
+
+	public function register()
+	{
+		$this->load->view('header');
+		$this->load->view('user_reg');
+		$this->load->view('footer');
+	}
+
+
+	public function login()
+	{
+		$this->load->view('header');
+		$this->load->view('login_page');
+		$this->load->view('footer');
+	}
+
+	public function memberarea(){
+		$this->load->view('header');
+		$this->load->view('member_page');
+		$this->load->view('footer');
+	}
+
 	public function listfutsal(){
 
 		// data lokasi / kota	
@@ -36,14 +58,22 @@ class Futsal extends CI_Controller
 
 	public function profile(){
 			$id_futsal= $_GET['id'];
-			$this->load->model('futsal_model');
+			
 
-		// data tempat futsal 
+		// data tempat futsal
+			$this->load->model('futsal_model'); 
 			$futsal = $this->futsal_model->profile_futsal($id_futsal);
 
-	   	
+	   	// data lapangan
+			$lapangan = $this->futsal_model->list_lapangan($id_futsal);
+			foreach ($lapangan as $item) {
+				$lap['lapangan'][0]="-Pilih Lapangan-";
+				$lap['lapangan'][$item['id_lap']] = $item['nama_lap'];
+			}
+
 		// parsing data
 			$data['futsal'] = $futsal;
+			$data['lapangan'] = $lap;
 		 			
 			$this->load->view('header');
 			$this->load->view('tempat_futsal',$data);

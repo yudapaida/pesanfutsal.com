@@ -32,9 +32,9 @@
 								</div>
 							</div>
 							<div class="menu-member">
-								<a href="<?= base_url('page_ctr/login_page');?>">LOGIN</a>
+								<a href="<?= base_url('futsal/login');?>">LOGIN</a>
 								/
-								<a href="<?= base_url('page_ctr/user_reg');?>">REGISTER</a>
+								<a href="<?= base_url('futsal/register');?>">REGISTER</a>
 							</div>
 						</div>
 					</header>

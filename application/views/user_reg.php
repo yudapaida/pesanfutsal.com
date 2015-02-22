@@ -33,7 +33,7 @@
 							<div class="col-md-6 col-md-offset-3">
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">REGISTER</h3>
-									<form action="#" method="POST">
+									<form action="<?= base_url().'register/member'; ?>" method="POST">
 										<p>
 											<label>First Name<span class="text-danger">*</span></label>
 											<br>

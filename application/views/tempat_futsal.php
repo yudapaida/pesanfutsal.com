@@ -10,24 +10,25 @@
 	                dateFormat : "yy-mm-dd",
 	                changeMonth : true,
 	                changeYear : true,
-	                yearRange : '-50:+50',
-	                onSelect : function(dateText){
-	             		var tgl=dateText;
-	             		var id="<?php echo $futsal[0]['id_futsal'];?>";
-	                	$.ajax({
-	                		type: "POST",
-	                		url:"<?php echo site_url('jadwal/lihat_jadwal');?>",
-	                		data:{id:id, tgl:tgl},
-	                		success: function(data){
-	                			$("#jadwal").html(data);
-	                		},
+	                yearRange : '-50:+50'
+	               //  onSelect : function(dateText){
+	             		// var tgl=dateText;
+	             		// var id="<?php echo $futsal[0]['id_futsal'];?>";
+	               //  	$.ajax({
+	               //  		type: "POST",
+	               //  		url:"<?php echo site_url('jadwal/lihat_jadwal');?>",
+	               //  		data:{id:id, tgl:tgl},
+	               //  		success: function(data){
+	               //  			$("#jadwal").html(data);
+	               //  			// alert(data);
+	               //  		},
 
-	                		error:function(XMLHttpRequest){
-                    		alert(XMLHttpRequest.responseText);
-                			}
-	                	})
+	               //  		error:function(XMLHttpRequest){
+                //     		alert(XMLHttpRequest.responseText);
+                // 			}
+	               //  	})
 	                
-	                }
+	               //  }
 	            });
 	        });
 
@@ -36,23 +37,23 @@
 //perhatikan, kuncinya adalah disini
         function fungsiambiljad(){
         	var tgl=$("#tglbooking").datepicker({ dateFormat: 'yy-mm-dd' }).val();
-        	var id_futsal =<?php echo $futsal[0]['id_futsal']; ?>;
-        	alert(tgl " dan " id_futsal);
+            var id_lap=$("#nama_lap option:selected").val();
 
-
-           // $.ajax({
-           //      type: "POST",
-           //      url: "<?php echo site_url('jadwal/lihat_jadwal');?>",
-           //      data:{id:id_futsal, tgl:},
-           //      success: function(data){
-           //          $("#kab").html(data);
-           //      },
+            // alert(data);
+           $.ajax({
+                type: "POST",
+                url: "<?php echo site_url('jadwal/lihat_jadwal');?>",
+                data:{tgl:tgl,
+                      id:id_lap},
+                datatype:'json',
+                success: function(data){
+                    $("#jadwal").html(data);
+                },
  
-           //      error:function(XMLHttpRequest){
-           //          alert(XMLHttpRequest.responseText);
-           //      }
- 
-           //  })
+                error:function(XMLHttpRequest){
+                    alert(XMLHttpRequest.responseText);
+                }
+            })
  
         };
 	</script>
@@ -340,37 +341,40 @@ foreach ($futsal as $item ){
 														'name' => 'tgl_booking',
 														'placeholder' => 'Pilih Tanggal',
 														'class' => 'form-control'
+														
 														);
 
-													echo form_input($data);
+													echo form_input($data);													
 													?>
 												</form>
+												</p>
+											</div>
+											<div class="col-xs-6 col-md-3 ">
+												<p>
+												<form action="#">
+													<?php
+													$js = 'id="nama_lap" class="form-control" onChange=""';
+													echo form_dropdown('nama_lap', $lapangan['lapangan'],'',$js);
+													?>
+												</form>
+												</p>
+											</div>
+											<div class="col-xs-6 col-md-3 ">
+												<p>
+													<form>
+														<input type="button" class="form-control btn-success" value="Show" onClick="fungsiambiljad()" align="center"/>
+													</form>
 												</p>
 											</div>
 											
 											<p></p>
 											<p></p>
+											<br>
 
 											<div id="jadwal">
-												<table>
-													<thead>
-														<tr>
-															<th>NO</th>
-															<th>JAM</th>
-															<th>STATUS</th>
-															<th>BOOKING</th>
-														</tr>
-													</thead>
-													<tbody>
-														<tr>
-															<td>1</td>
-															<td>07.00</td>
-															<td>Booked by KOMSI</td>
-															<td>BOOKING</td>
-														</tr>
-													</tbody>
-												</table>
+												
 											</div>
+
 										</div>
 									</div>
 								</div>

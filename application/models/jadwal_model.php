@@ -6,8 +6,8 @@ class Jadwal_model extends CI_Model {
         parent::__construct();
     }
 
-    public function lihat_transaksi($id_futsal, $tgl_booking){
-		$query = "SELECT jam,status,nama_team FROM transaksi WHERE id_futsal='$id_futsal' AND tgl_booking='$tgl_booking'";
+    public function list_transaksi($id_lap,$tgl_booking){
+		$query = "SELECT * FROM transaksi WHERE id_lapangan='$id_lap' AND tgl_booking='$tgl_booking'";
 		$data = $this->db->query($query);
 		
 		if($data->num_rows() > 0){
@@ -16,5 +16,11 @@ class Jadwal_model extends CI_Model {
 			return FALSE;
 		}
 
+    }
+
+    public function jadwal_lapangan($id_lap){
+    	$query = "SELECT * FROM lapangan WHERE id_lap='$id_lap'";
+    	$data = $this->db->query($query);
+    	return $data->result_array();
     }
 }

@@ -6,7 +6,7 @@
 					<span class="form-inputs">
 						<?php
 						$js=''; 
-						echo form_dropdown('lokasi',$kota,'',$js);
+						echo form_dropdown('lokasi',$kota['kota'],'',$js);
 						?>
 					</span>	
 			</form>
@@ -36,15 +36,16 @@
 								<div id="filter-menu">
 									<form action="#" method="GET">
 										<div class="filter-menu">
-											<select>
-												<option value="#">Pilih Lokasi</option>
-											</select>
+											<?php
+											$js=''; 
+											echo form_dropdown('lokasi',$kota['kota'],'',$js);
+											?>
 										</div>
 										<div class="filter-menu">
 											<input type="text" class="form-control" name="keyword" placeholder="Cari Tempat Futsal">
 										</div>
 										<div class="filter-menu">
-											<input type="submit" class="btn btn-block btn-lg btn-primary" id="cari" value="Search">
+											<input type="button" class="form-control btn btn-success" id="cari" value="Search">
 										</div>
 									</form>
 								</div>

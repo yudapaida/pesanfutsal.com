@@ -45,15 +45,15 @@
 							</div>
 							<?php if($this->session->userdata('akun')){ ?>
 								<div class="menu-member">
-								<a href="<?= base_url('page_ctr/member_area');?>">Member Area</a>
+								<a href="<?= base_url('futsal/memberarea');?>">Member Area</a>
 								/
 								<a href="<?= base_url('login_ctr/logout');?>">Logout</a>
 							</div>
 							<?php } else { ?>
 							<div class="menu-member">
-								<a href="<?= base_url('page_ctr/login_page');?>">Login</a>
+								<a href="<?= base_url('futsal/login');?>">Login</a>
 								/
-								<a href="<?= base_url('page_ctr/user_reg');?>">Register</a>
+								<a href="<?= base_url('futsal/register');?>">Register</a>
 							</div>
 							<?php } ?>
 						</div>
