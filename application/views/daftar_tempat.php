@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/ui-lightness/ui.all.css');?>" />
+    <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
+	<script type="text/javascript">
+		//perhatikan, kuncinya adalah disini
+        function fungsicari(){
+        	var keyword=$("#formcari").val();
+            
+           $.ajax({
+                type: "POST",
+                url: "<?php echo site_url('filterfutsal/cari');?>",
+                data:{keyword:keyword},
+                datatype:'json',
+                success: function(data){
+                    $("#listfutsal").html(data);                    
+                },
+ 
+                error:function(XMLHttpRequest){
+                    // alert(XMLHttpRequest.responseText);
+                    alert('gagal');
+                }
+            })
+ 
+        };
+	</script>
+
 <div class="top-content">
 	<div class="home-top-content">
 		<div class="search-form">
@@ -34,7 +63,7 @@
 						<div class="row">
 							<div class="filter">
 								<div id="filter-menu">
-									<form action="#" method="GET">
+									<form action="#">
 										<div class="filter-menu">
 											<?php
 											$js=''; 
@@ -42,16 +71,19 @@
 											?>
 										</div>
 										<div class="filter-menu">
-											<input type="text" class="form-control" name="keyword" placeholder="Cari Tempat Futsal">
+											<input type="text" id="formcari" class="form-control" name="keyword" placeholder="Cari Tempat Futsal">
 										</div>
 										<div class="filter-menu">
-											<input type="button" class="form-control btn btn-success" id="cari" value="Search">
+											<input type="button" class="form-control btn btn-success" value="Search" onClick="fungsicari()">
 										</div>
 									</form>
 								</div>
 							</div>
 
 							<!-- List tempat futsal -->
+
+							<div id="listfutsal">
+							</div>
 
 							<?php 
 								$i=0;
@@ -81,8 +113,7 @@
 									</div>
 								<?php $i++; } ?>
 
-
-
+								
 									</div>
 								</div>
 							</div>

@@ -11,6 +11,12 @@
 		return $query->result_array();
 	}
 
+	public function cari_futsal($keyword){
+		$query = "SELECT * FROM operator WHERE status='confirmed' AND nama_futsal LIKE '%$keyword%'";
+		$data = $this->db->query($query);
+		return $data->result_array();
+	}
+
 	public function profile_futsal($id_futsal){
 		$query = "SELECT * FROM operator WHERE id_futsal='$id_futsal'";
 		$data = $this->db->query($query);

@@ -11,30 +11,12 @@
 	                changeMonth : true,
 	                changeYear : true,
 	                yearRange : '-50:+50'
-	               //  onSelect : function(dateText){
-	             		// var tgl=dateText;
-	             		// var id="<?php echo $futsal[0]['id_futsal'];?>";
-	               //  	$.ajax({
-	               //  		type: "POST",
-	               //  		url:"<?php echo site_url('jadwal/lihat_jadwal');?>",
-	               //  		data:{id:id, tgl:tgl},
-	               //  		success: function(data){
-	               //  			$("#jadwal").html(data);
-	               //  			// alert(data);
-	               //  		},
-
-	               //  		error:function(XMLHttpRequest){
-                //     		alert(XMLHttpRequest.responseText);
-                // 			}
-	               //  	})
-	                
-	               //  }
 	            });
 	        });
 
 	</script>
 	<script type="text/javascript">
-//perhatikan, kuncinya adalah disini
+	//perhatikan, kuncinya adalah disini
         function fungsiambiljad(){
         	var tgl=$("#tglbooking").datepicker({ dateFormat: 'yy-mm-dd' }).val();
             var id_lap=$("#nama_lap option:selected").val();
