@@ -19,6 +19,8 @@
 		{
 			$data = $this->member_model->view_transaksi();
 			$data['data'] = $data;
+			// print_r($data);
+			// die();
 			$this->load->view('header');
 			$this->load->view('member_page',$data);
 			$this->load->view('footer');
@@ -54,7 +56,11 @@
 		{
 			$result = $this->member_model->update_password($_POST['username'],$_POST['pass_lama'],$_POST['pass_baru'],$_POST['pass_baru2']);
 
-			if($result){
+			if($result == 'FALSE'){
+				$data['alert'] = "Coba Alert";
+				redirect('member/password');
+			}
+			else {
 				redirect('member');
 			}
 		}

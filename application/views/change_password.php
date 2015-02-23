@@ -12,6 +12,23 @@
 						<span class="current">Change Password</span>
 					</p>
 				</div>
+							<?php if (isset($alert)) {
+				?>
+				<div class="alert-container">
+					<div id="alert" class="alert alert-danger" class="col-md-3">
+						<button type="button" class="close" data-dismiss="alert">X
+							<h4><p><?= $alert?></p></h4>
+						</button>
+					</div>
+				</div>
+				<?php } ?>
+				<!-- <div class="alert-container">
+					<div id="alert" class="alert alert-danger" class="col-md-3">
+						<button type="button" class="close" data-dismiss="alert">X
+							<h4><p>Coba</p></h4>
+						</button>
+					</div>
+				</div> -->
 				<div class="entry-content">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">

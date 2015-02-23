@@ -29,7 +29,7 @@
 					<a href="<?= base_url('member/password'); ?>" class="btn btn-success btn-lg">CHANGE PASSWORD</a>
 					<br><br>
 				</div>
-				
+	
 				<div class="entry-content">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">

@@ -86,9 +86,9 @@ foreach ($futsal as $item ){
 												</h2>
 												<ul>
 													<li><strong>Kota Futsal</strong></li>
-													<li><strong><?php echo strtoupper($item['alamat']); ?></strong></li>
-													<li><strong>Phone</strong></li>
-													<li><strong>No Rekening</strong></li>
+													<li><strong>Alamat :</strong><?php echo strtoupper($item['alamat']); ?></li>
+													<li><strong>Phone :</strong><?= strtoupper($item['phone']);?> </li>
+													<li><strong>No Rekening :</strong><?= strtoupper($item['no_rek']);?></li>
 												</ul>
 											</div>
 										</div>

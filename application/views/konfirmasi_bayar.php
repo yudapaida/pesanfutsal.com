@@ -15,7 +15,7 @@
 						<div class="col-md-8 col-md-offset-2">
 							<div class="well" style="backgroud-color: white;">
 								<h3 style="margin-top: 0px;">KONFIRMASI PEMBAYARAN</h3>
-								<form action="#" method="POST" enctype="multipart/form-data">
+								<form action="<?= base_url('transaksi/insert_konfirmasi');?>" method="POST" enctype="multipart/form-data">
 									<?php foreach ($transaksi as $row) { ?>
 									<input type="hidden" name="id_transaksi" value="<?= $row['id_transaksi'];?>" visibility="hidden">
 									<p>

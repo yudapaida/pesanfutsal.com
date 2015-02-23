@@ -63,7 +63,7 @@ class Jadwal_model extends CI_Model {
         $data['harga'] = $harga_lap[0][$harga];
         $data['nama_team'] = $team;
         $data['tgl_booking'] = $tgl;
-
+        
         $result = $this->db->insert('transaksi',$data);
 
     }

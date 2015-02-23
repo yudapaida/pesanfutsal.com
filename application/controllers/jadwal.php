@@ -67,7 +67,7 @@ class Jadwal extends CI_Controller
 				echo					'<td>'.$waktu[$i].'</td>';
 				echo					'<td>Booked by KOMSI</td>';
 				echo					'<td>BOOKING</td>';
-				echo					'<td><a href="'.base_url('jadwal/pesan').'?id_lap='.$item['id_lap'].'&&id_futsal='.$item['id_futsal'].'&&jam=07.00&&tgl='.$tgl.'"><button class="btn btn-success" '.$button[$i].'> Booking </button></a></td>';
+				echo					'<td><a href="'.base_url('jadwal/pesan').'?id_lap='.$item['id_lap'].'&&id_futsal='.$item['id_futsal'].'&&jam='.$waktu[$i].'&&tgl='.$tgl.'"><button class="btn btn-success" '.$button[$i].'> Booking </button></a></td>';
 				echo				'</tr>';
 			}
 			echo			'</tbody>';

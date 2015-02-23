@@ -92,7 +92,10 @@ class Member_model extends CI_Model {
 			$pass_lama = md5($pass_lama);
 			if ($pass_lama != $coba) {
 				// echo "password lama beda";
-				redirect('member/password');
+				// $data['alert'] ="COba Alert";
+				// redirect('member/password');
+				$data = "FALSE";
+				return $data;
 			}
 			elseif ($pass_baru != $pass_baru2) {
 				// echo "password baru beda";
