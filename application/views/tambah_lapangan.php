@@ -20,7 +20,7 @@
 							<div class="col-md-8 col-md-offset-2">
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">DATA LAPANGAN</h3>
-									<form action="<?= base_url('admin/insert_lap'); ?>" method="POST">
+									<form action="<?= base_url('admin/insert_lap'); ?>" method="POST" enctype="multipart/form-data">
 										<p>
 											<label>Nama Lapangan<span class="text-danger">*</span></label>
 											<br>
@@ -47,6 +47,10 @@
 											<label>Malam<span class="text-danger">*</span></label>
 											<br>
 											<input type="text" name="malam" placeholder="Tarif Malam" class="form-control">
+										</p>
+										<p>
+											<label>Gambar Lapangan<span class="text-danger">*</span></label>
+											<input type="file" name="userfile">
 										</p>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="SUBMIT"></p>
 									</form>

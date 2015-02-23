@@ -1,4 +1,4 @@
-	<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/ui-lightness/ui.all.css');?>" />
+	<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/base/ui.all.css');?>" />
     <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>

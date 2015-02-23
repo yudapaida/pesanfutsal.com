@@ -30,7 +30,7 @@ class Login_ctr extends CI_Controller {
 		//direct ke halaman sesuai group usernya
 		if($data == "admin"){
 			// redirect('admin_ctr/view_operator');
-			echo "admin";
+			redirect('superadmin');
 		}
 		if($data == "operator"){
 			// redirect('lapangan_crud/view_lap');

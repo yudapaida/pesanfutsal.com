@@ -37,8 +37,10 @@ class Futsal extends CI_Controller
 
 	public function adminfutsal()
 	{
+		$this->load->model('lokasi_model');
+		$data['data'] = $this->lokasi_model->daftar_lokasi();
 		$this->load->view('header');
-		$this->load->view('admin_reg');
+		$this->load->view('admin_reg',$data);
 		$this->load->view('footer');
 	}
 

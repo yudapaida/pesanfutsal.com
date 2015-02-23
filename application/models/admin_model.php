@@ -39,7 +39,7 @@
 			$this->db->query($query);
 		}
 
-		public function insert_lap()
+		public function insert_lap($filename)
 		{
 			$username = $this->session->userdata('akun');
 
@@ -57,6 +57,7 @@
 			$data['siang']=$_POST['siang'];
 			$data['malam']=$_POST['malam'];
 			$data['id_futsal']= $coba;
+			$data['gambar']=$filename;
 
 			$result = $this->db->insert('lapangan', $data);
 		}

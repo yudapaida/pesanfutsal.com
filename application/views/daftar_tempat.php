@@ -122,9 +122,9 @@
 												</div>
 											</div>
 											<div class="gerai-main">
-												<div class="gerai-thumb coba">
+												<div class="gerai-thumb profile">
 													<a href="<?= base_url('futsal/profile');?>?id=<?php echo $item['id_futsal']; ?>">
-														<img src="<?php echo base_url('assets/image/'.$item['gambar']);?>">
+														<img src="<?php echo base_url('assets/image/futsal/'.$item['gambar']);?>">
 													</a>
 												</div>
 												<div class="gerai-action">

@@ -33,21 +33,11 @@
 							<div class="col-md-8 col-md-offset-2">
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">REGISTER</h3>
-									<form action="#" method="POST">
+									<form action="<?= base_url('register/adminfutsal');?>" method="POST" enctype="multipart/form-data">
 										<p>
-											<label>First Name<span class="text-danger">*</span></label>
+											<label>Nama Futsal<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="first_name" placeholder="First Name" class="form-control">
-										</p>
-										<p>
-											<label>Last Name<span class="text-danger">*</span></label>
-											<br>
-											<input type="text" name="last_name" placeholder="Last Name" class="form-control">
-										</p>
-										<p>
-											<label>ID Card<span class="text-danger">*</span></label>
-											<br>
-											<input type="text" name="id_card" placeholder="First Name" class="form-control">
+											<input type="text" name="nama_futsal" placeholder="Nama Futsal" class="form-control">
 										</p>
 										<p>
 											<label>Email<span class="text-danger">*</span></label>
@@ -60,24 +50,42 @@
 											<input type="password" name="password" placeholder="Password" class="form-control">
 										</p>
 										<p>
-											<label>Date of Birth<span class="text-danger">*</span></label>
+											<label>Alamat<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" id="tanggal" name="ttl" placeholder="yyyy-mm-dd" class="form-control">
+											<!-- <input type="text" name="username" placeholder="Email" class="form-control"> -->
+											<textarea input="text" name="alamat" rows="3" class="form-control" placeholder="Alamat"></textarea>
 										</p>
 										<p>
-											<label>Team Name<span class="text-danger">*</span></label>
-											<br>
-											<input type="text" name="team_name" placeholder="Team Name" class="form-control">
+											
+											<label for="selectkota">Pilih Kota : </label>
+											<!-- br> -->
+											<!-- <input type="text" name="id_kota" placeholder="Password" class="form-control"> -->
+											<select name="id_kota" id="selectkota"placeholder="Pilih Kota">
+												<option value="" selected>Pilih Kota</option>
+												<?php foreach ($data as $row) {?>
+												<option value="<?= $row['id_lokasi'];?>"><?= $row['nama_lokasi'];?></option>
+												<?php } ?>
+											</select>
 										</p>
 										<p>
-											<label>Address<span class="text-danger">*</span></label>
+											<label>Nomor Rekening<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="address" placeholder="Address" class="form-control">
+											<input type="text" name="no_rek" placeholder="Nomor Rekening" class="form-control">
 										</p>
 										<p>
-											<label>Mobile Phone<span class="text-danger">*</span></label>
+											<label>Nomor Telepon<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="phone" placeholder="Mobile Phone" class="form-control">
+											<input type="text" name="phone" placeholder="Nomor Telepon" class="form-control">
+										</p>
+										<p>
+											<label>Deskripsi<span class="text-danger">*</span></label>
+											<br>
+											<!-- <input type="text" name="username" placeholder="Email" class="form-control"> -->
+											<textarea input="text" name="deskripsi" rows="3" class="form-control" placeholder="Deskripsi"></textarea>
+										</p>
+										<p>
+											<label>Logo<span class="text-danger">*</span></label>
+											<input type="file" name="userfile">
 										</p>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="REGISTER"></p>
 									</form>

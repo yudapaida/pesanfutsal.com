@@ -50,8 +50,8 @@
 					<div class="home-top-content">
 						<h1>Futsal ? Pesan aja di PESANFUTSAL.com</h1>
 						<p></p>
-						<p>fgkgkkkbkbbkbkigkigkxtgtrshyc</p>
-						<p>jdkashkdnhaldnaendflanldnaldnal</p>
+						<p>Pesan futsal jadi gampang berkat ada pesanfutsal.com</p>
+						<p>Lihat jadwal -> Booking -> Konfirmasi -> Main </p>
 						<div class="buttons">
 							<a href="<?php echo base_url('futsal/listfutsal');?>"  class="btn btn-lg btn-primary">
 							<i class="glyphicon glyphicon-list-alt"></i>

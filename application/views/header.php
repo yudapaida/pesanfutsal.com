@@ -15,16 +15,16 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style3.css');?>">
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<style type="text/css">
-		.coba img {
+		.profile img {
 			height: 250px;
 			width: 250px;
 			position: relative;
 			margin-left: 45px;
 		}
 
-		.gambar-user img {
-			height: 250px;
-			width: 300px;
+		.corusel img {
+			height: 400px;
+			width: 500px;
 		}
 		</style>
 	</head>
