@@ -27,13 +27,13 @@ class Filterfutsal extends CI_Controller
 										<div class="gerai-inner">
 											<div class="gerai-header clearfix">
 												<div class="gerai-info">
-													<h2><a href="'.base_url('page_ctr/tempat_futsal').'">'.$item['nama_futsal'].'</a></h2>
+													<h2><a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">'.$item['nama_futsal'].'</a></h2>
 												</div>
 											</div>
 											<div class="gerai-main">
 												<div class="gerai-thumb coba">
-													<a href="'.base_url('page_ctr/tempat_futsal').'">
-														<img src="'.base_url('assets/image/'.$item['gambar']).'">
+													<a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">
+														<img src="'.base_url('assets/image/futsal/'.$item['gambar']).'">
 													</a>
 												</div>
 												<div class="gerai-action">
@@ -65,13 +65,13 @@ class Filterfutsal extends CI_Controller
 										<div class="gerai-inner">
 											<div class="gerai-header clearfix">
 												<div class="gerai-info">
-													<h2><a href="'.base_url('page_ctr/tempat_futsal').'">'.$item['nama_futsal'].'</a></h2>
+													<h2><a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">'.$item['nama_futsal'].'</a></h2>
 												</div>
 											</div>
 											<div class="gerai-main">
 												<div class="gerai-thumb coba">
-													<a href="'.base_url('page_ctr/tempat_futsal').'">
-														<img src="'.base_url('assets/image/'.$item['gambar']).'">
+													<a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">
+														<img src="'.base_url('assets/image/futsal/'.$item['gambar']).'">
 													</a>
 												</div>
 												<div class="gerai-action">

@@ -78,7 +78,7 @@ foreach ($futsal as $item ){
 									<div class="col-md-7">
 										<div class="gerai-header clearfix">
 											<div class="gerai-logo">
-												<img src="<?= base_url('assets/image/'.$item['gambar']);?>">
+												<img src="<?= base_url('assets/image/futsal/'.$item['gambar']);?>">
 											</div>
 											<div class="gerai-info">
 												<h2 class="gerai-name">

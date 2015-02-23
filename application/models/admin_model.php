@@ -13,7 +13,7 @@
 		public function view_konfirmasi()
 		{
 			$username = $this->session->userdata('akun');
-			$query = "SELECT konfirmasi.nama_member as 'nama',konfirmasi.nama_team as 'team', konfirmasi.lokasi as 'lokasi', konfirmasi.lapangan as 'lapangan' , konfirmasi.tgl_booking as 'tgl', konfirmasi.jam as 'jam', konfirmasi.harga as 'harga',konfirmasi.gambar as 'gambar', konfirmasi.id_transaksi as 'id_transaksi', transaksi.status as 'status' FROM transaksi,konfirmasi,user,operator WHERE user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal AND operator.nama_futsal=konfirmasi.lokasi AND username='$username' order by id_konfirmasi;";
+			$query = "SELECT konfirmasi.nama_member as 'nama',konfirmasi.nama_team as 'team', konfirmasi.lokasi as 'lokasi', konfirmasi.lapangan as 'lapangan' , konfirmasi.tgl_booking as 'tgl', konfirmasi.jam as 'jam', konfirmasi.harga as 'harga',konfirmasi.gambar as 'gambar', konfirmasi.id_transaksi as 'id_transaksi', transaksi.status as 'status' FROM transaksi,konfirmasi,user,operator WHERE user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal AND transaksi.id_transaksi=konfirmasi.id_transaksi AND operator.nama_futsal=konfirmasi.lokasi AND username='$username' order by id_konfirmasi";
 			$data = $this->db->query($query);
 			return $data->result_array();
 		}
