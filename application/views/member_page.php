@@ -7,6 +7,7 @@
 			<div class="member-nav">
 				<ul>
 					<li><a href="<?= base_url();?>">Home</a></li>
+					<li><a href="<?= base_url('futsal/listfutsal');?>">Booking</a></li>
 					<li><a href="#">Transaksi</a></li>
 					<li><a href="<?= base_url('member/profile');?>">Edit Profil</a></li>
 					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>

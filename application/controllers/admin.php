@@ -19,6 +19,7 @@
 		{
 			$data = $this->admin_model->view_konfirmasi();
 			$data['data'] = $data;
+
 			$this->load->view('header_admin');
 			$this->load->view('admin_page',$data);
 			$this->load->view('footer');
