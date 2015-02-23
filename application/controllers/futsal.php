@@ -24,7 +24,21 @@ class Futsal extends CI_Controller
 	public function register()
 	{
 		$this->load->view('header');
+		$this->load->view('menu_reg');
+		$this->load->view('footer');
+	}
+
+	public function user()
+	{
+		$this->load->view('header');
 		$this->load->view('user_reg');
+		$this->load->view('footer');
+	}
+
+	public function adminfutsal()
+	{
+		$this->load->view('header');
+		$this->load->view('admin_reg');
 		$this->load->view('footer');
 	}
 
@@ -90,6 +104,13 @@ class Futsal extends CI_Controller
 			$this->load->view('tempat_futsal',$data);
 			$this->load->view('footer');
 	}
+
+	// public function coba ()
+	// {
+	// 	$this->load->view('header');
+	// 	$this->load->view('coba');
+	// 	$this->load->view('footer');
+	// }
 
 
 }
