@@ -128,9 +128,9 @@ class Member_model extends CI_Model {
 			if ($pass_lama != $coba) {
 				// echo "password lama beda";
 				// $data['alert'] ="COba Alert";
-				// redirect('member/password');
-				$data = "FALSE";
-				return $data;
+				redirect('member/password');
+				// // $data = "FALSE";
+				// return FALSE;
 			}
 			elseif ($pass_baru != $pass_baru2) {
 				// echo "password baru beda";

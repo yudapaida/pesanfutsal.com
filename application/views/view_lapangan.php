@@ -8,8 +8,9 @@
 				<ul>
 					<!-- <li><a href="<?= base_url();?>">Home</a></li> -->
 					<li><a href="<?= base_url('admin');?>">Transaksi</a></li>
-					<li><a href="#">Lapangan</a></li>
+					<li><a href="#" style="color: #008000;">Lapangan</a></li>
 					<li><a href="<?= base_url('admin/profile');?>">Edit Data Futsal</a></li>
+					<li><a href="<?= base_url('admin/laporan');?>">Laporan</a></li>
 					<li><a href="<?= base_url('member/password');?>">Change Password</a></li>
 					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>
 				</ul>

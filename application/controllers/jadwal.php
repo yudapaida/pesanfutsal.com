@@ -23,7 +23,7 @@ class Jadwal extends CI_Controller
 	// data transaksi	
 		$this->load->model('jadwal_model');
 		$transaksi = $this->jadwal_model->list_transaksi($id_lap,$tgl);
-
+		// $namateam = $transaksi['nama_team'];
 		for ($i=0; $i < count($transaksi) ; $i++) { 
 				$jam[]=$transaksi[$i]['jam'];
 				$stat[]=$transaksi[$i]['status'];
@@ -36,10 +36,18 @@ class Jadwal extends CI_Controller
 		foreach($waktu as $t) {
 		    if(in_array($t, $jam, true) ) {
 		        $button[]="disabled";
+		        $status[] = "Booked";
+		        $tombol[] = "Booked";
+		        $namateam[] = $team;
 		    } else {
 		        $button[]="";
+		        $status[] = "Free";
+		        $namateam[] = "Free";
+		        $tombol[] = "Booking";
 		    }
 		}	
+
+
 
 	// data lapangan
 		$lapangan = $this->jadwal_model->jadwal_lapangan($id_lap);
@@ -55,7 +63,6 @@ class Jadwal extends CI_Controller
 			echo					'<th>NO</th>';
 			echo					'<th>JAM</th>';
 			echo					'<th>STATUS</th>';
-			echo 					'<th>NAMA TEAM</th>';
 			echo 					'<th></th>';
 			echo				'</tr>';
 			echo			'</thead>';
@@ -65,9 +72,11 @@ class Jadwal extends CI_Controller
 				echo				'<tr>';
 				echo					'<td>'.($i+1).'</td>';
 				echo					'<td>'.$waktu[$i].'</td>';
-				echo					'<td>Booked by KOMSI</td>';
-				echo					'<td>BOOKING</td>';
-				echo					'<td><a href="'.base_url('jadwal/pesan').'?id_lap='.$item['id_lap'].'&&id_futsal='.$item['id_futsal'].'&&jam='.$waktu[$i].'&&tgl='.$tgl.'"><button class="btn btn-success" '.$button[$i].'> Booking </button></a></td>';
+				echo					'<td>'.$status[$i].'</td>';
+				// echo					'<td>'.$namateam[$i].'</td>';
+				// echo 					'<td>Booked By Komsi</td>';
+				// echo 					'<td>Booking</td>';
+				echo					'<td><a href="'.base_url('jadwal/pesan').'?id_lap='.$item['id_lap'].'&&id_futsal='.$item['id_futsal'].'&&jam='.$waktu[$i].'&&tgl='.$tgl.'"><button class="btn btn-success" '.$button[$i].'>'.$tombol[$i].'</button></a></td>';
 				echo				'</tr>';
 			}
 			echo			'</tbody>';

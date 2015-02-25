@@ -69,13 +69,76 @@
 			return $data->result_array();
 		}
 
-		public function update_lap($id_lap,$nama_lap,$deskripsi,$pagi,$siang,$malam){
+		public function update_lap($id_lap,$nama_lap,$deskripsi,$pagi,$siang,$malam)
+		{
 		$query="UPDATE lapangan SET nama_lap='$nama_lap',
 									 deskripsi='$deskripsi',
 									 pagi='$pagi',
 									 siang='$siang',
 									 malam='$malam'
 				where id_lap=$id_lap";
+		$result=$this->db->query($query);
+		return TRUE;
+		}
+
+		public function change_password()
+		{
+			$username = $this->session->userdata('akun');
+			$query = "SELECT username,password FROM user WHERE username='$username'";
+			$data = $this->db->query($query);
+			return $data->result_array();
+		}
+
+		public function update_password($username,$pass_lama,$pass_baru,$pass_baru2)
+		{
+			$query_old_pass = "SELECT password FROM user WHERE username='$username'";
+			$old_pass = $this->db->query($query_old_pass);
+			foreach ($old_pass->result() as $key) {
+				$coba = $key->password;
+			}
+			$pass_lama = md5($pass_lama);
+			if ($pass_lama != $coba) {
+				// echo "password lama beda";
+				// $data['alert'] ="COba Alert";
+				redirect('admin/password');
+				// $data = "FALSE";
+				// return $data;
+			}
+			elseif ($pass_baru != $pass_baru2) {
+				// echo "password baru beda";
+				redirect('admin/password');
+			}
+			else {
+				$query = "UPDATE user SET password=md5('$pass_baru') WHERE username='$username'";
+				$data = $this->db->query($query);
+				// redirect('member');
+				return TRUE;
+			}
+		}
+
+		public function view_profile()
+		{
+			$username = $this->session->userdata('akun');
+			$query = "SELECT nama_futsal as 'nama', alamat, id_kota, no_rek as 'rekening',phone, deskripsi FROM user, operator WHERE user.id_user=operator.id_user AND username='$username'";
+			$data = $this->db->query($query);
+			return $data->result_array();
+		}
+
+		public function update_profile($nama_futsal,$alamat,$id_kota,$no_rek,$phone,$deskripsi)
+		{
+			$username = $this->session->userdata('akun');
+			$queryuser = "SELECT operator.id_user as 'id' FROM user,operator WHERE operator.id_user=user.id_user AND username='$username'";
+			$id_user = $this->db->query($queryuser);
+			foreach ($id_user->result() as $key) {
+				$coba = $key->id;
+			}
+			$query="UPDATE operator SET nama_futsal='$nama_futsal',
+									 alamat='$alamat',
+									 id_kota='$id_kota',
+									 no_rek='$no_rek',
+									 phone='$phone',
+									 deskripsi='$deskripsi'
+				where id_user=$coba";
 		$result=$this->db->query($query);
 		return TRUE;
 		}

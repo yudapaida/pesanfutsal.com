@@ -6,11 +6,12 @@
 			</div>
 			<div class="member-nav">
 				<ul>
-					<li><a href="<?= base_url('futsal/admin');?>">Home</a></li>
-					<li><a href="#">Transaksi</a></li>
+					<!-- <li><a href="<?= base_url('futsal/admin');?>">Home</a></li> -->
+					<li><a href="#" style="color: #008000;">Transaksi</a></li>
 					<li><a href="<?= base_url('admin/lapangan');?>">Lapangan</a></li>
 					<li><a href="<?= base_url('admin/profile');?>">Edit Data Futsal</a></li>
-					<li><a href="<?= base_url('member/password');?>">Change Password</a></li>
+					<li><a href="<?= base_url('admin/laporan');?>">Laporan</a></li>
+					<li><a href="<?= base_url('admin/password');?>">Change Password</a></li>
 					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>
 				</ul>
 			</div>
@@ -19,7 +20,7 @@
 					<div class="menu-list">
 						<div class="section-title">
 							<h2>
-								<span>DAFTAR KONFIRMASI</span>
+								<span>TRANSAKSI</span>
 							</h2>
 						</div>
 						<div id="transaksi">

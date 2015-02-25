@@ -113,5 +113,55 @@
 				redirect('admin/lapangan');
 			}
 		}
+
+		public function password()
+		{
+			$data['user'] = $this->admin_model->change_password();
+			$this->load->view('header_admin');
+			$this->load->view('change_password_admin',$data);
+			$this->load->view('footer');
+		}
+		public function update_password()
+		{
+			$result = $this->admin_model->update_password($_POST['username'],$_POST['pass_lama'],$_POST['pass_baru'],$_POST['pass_baru2']);
+
+			// if($result == 'FALSE'){
+			// 	// $data['alert'] = "Coba Alert";
+			// 	redirect('admin/password');
+			// }
+			// else {
+			// 	redirect('admin');
+			// }
+			if($result){
+				redirect('admin');
+			}
+		}
+
+		public function profile()
+		{
+			$this->load->model('lokasi_model');
+			$datafutsal['profile'] = $this->admin_model->view_profile();
+			$datafutsal['data'] = $this->lokasi_model->daftar_lokasi();
+			$this->load->view('header_admin');
+			$this->load->view('edit_data_futsal', $datafutsal);
+			$this->load->view('footer');
+		}
+
+		public function update_profile()
+		{
+			$result=$this->admin_model->update_profile($_POST['nama_futsal'],$_POST['alamat'],
+			$_POST['id_kota'],$_POST['no_rek'],$_POST['phone'],$_POST['deskripsi']);
+
+			if($result){
+				redirect('admin');
+			}
+		}
+
+		public function laporan()
+		{
+			$this->load->view('header_admin');
+			$this->load->view('laporan_admin');
+			$this->load->view('footer');
+		}
 	}
 ?>
