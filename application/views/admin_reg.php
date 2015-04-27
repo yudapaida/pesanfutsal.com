@@ -71,8 +71,13 @@
 											<label>Masukkan Koordinat <span class="text-danger">*</span></label>
 													<div class="map">
 														<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-														<div id="map" style="width: 500px; height: 300px;"></div> 
-												        <script type="text/javascript">
+														<div id="map" style="width: 500px; height: 300px;"></div> 												        
+										        	</div>												
+											<br>
+											<label>Latitude : </label><input type="text" name='latitude' id='latitude' class="form-control" placeholder="Latitude">
+											<label>Latitude : </label><input type="text" name='longitude' id='longitude' class="form-control" placeholder="Longitude">
+
+											<script type="text/javascript">
 															    //* Fungsi untuk mendapatkan nilai latitude longitude
 															function updateMarkerPosition(latLng) {
 															  document.getElementById('latitude').value = [latLng.lat()]
@@ -105,10 +110,8 @@
 															    updateMarkerPosition(marker.getPosition());
 															  });
 														</script>
-										        	</div>												
-											<br>
-											<label>Latitude : </label><input type="text" name='latitude' id='latitude'>
 										</p>
+										<br>
 										<p>
 											<label>Nomor Rekening<span class="text-danger">*</span></label>
 											<br>
