@@ -59,6 +59,8 @@ class Member_model extends CI_Model {
 			$data['alamat']=$_POST['alamat'];
 			$data['id_kota'] =$_POST['id_kota'];
 			$data['no_rek'] =$_POST['no_rek'];
+			$data['latitude'] =$_POST['latitude'];
+			$data['longitude'] =$_POST['longitude'];
 			$data['phone'] = $_POST['phone'];
 			$data['deskripsi']=$_POST['deskripsi'];
 			$data['gambar']=$filename;
