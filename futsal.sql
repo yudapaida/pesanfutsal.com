@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2015 at 03:46 AM
+-- Generation Time: May 15, 2015 at 06:39 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -29,24 +29,29 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `konfirmasi` (
   `id_konfirmasi` int(10) NOT NULL AUTO_INCREMENT,
   `nama_member` varchar(100) DEFAULT NULL,
+  `nama_team` varchar(200) NOT NULL,
   `lokasi` varchar(100) DEFAULT NULL,
   `lapangan` varchar(100) DEFAULT NULL,
+  `tgl_booking` date NOT NULL,
   `jam` varchar(100) DEFAULT NULL,
   `harga` varchar(100) DEFAULT NULL,
   `gambar` varchar(255) DEFAULT NULL,
   `id_transaksi` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_konfirmasi`),
   KEY `id_transaksi` (`id_transaksi`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `konfirmasi`
 --
 
-INSERT INTO `konfirmasi` (`id_konfirmasi`, `nama_member`, `lokasi`, `lapangan`, `jam`, `harga`, `gambar`, `id_transaksi`) VALUES
-(10, 'yuda yuda', 'Centaur', 'lapangan 1', '07.00', '75000', '5.jpg', 3),
-(11, 'yuda yuda', 'Akasha', 'lapangan 1', '07.00', '80000', '4.jpg', 4),
-(12, 'yuda yuda', 'Centaur', 'lapangan 1', '08.00', '75000', NULL, 5);
+INSERT INTO `konfirmasi` (`id_konfirmasi`, `nama_member`, `nama_team`, `lokasi`, `lapangan`, `tgl_booking`, `jam`, `harga`, `gambar`, `id_transaksi`) VALUES
+(3, 'ismail adima', 'black team', 'soccer', 'Lapangan B', '2015-02-19', '20.00', '120000', 'konfirmasi1.jpg', 2),
+(4, 'ismail adima', 'black team', 'soccer', 'Lapangan B', '2015-02-28', '20.00', '120000', 'konfirmasi11.jpg', 3),
+(5, 'yuda hermawan', 'G82', 'djuragan', 'Lapangan 1', '2015-02-19', '07.00', '100000', 'konfirmasi12.jpg', 4),
+(6, 'yuda hermawan', 'G82', 'jakal 7', 'Lapangan 3', '2015-02-25', '21.00', '140000', 'konfirmasi13.jpg', 5),
+(7, 'yuda hermawan', 'G82', 'djuragan', 'Lapangan 1', '2015-02-24', '17.00', '110000', 'konfirmasi14.jpg', 6),
+(8, 'ismail adima', 'black team', 'komsi', 'lapangan 1', '2015-02-25', '08.00', '100000', 'konfirmasi15.jpg', 7);
 
 -- --------------------------------------------------------
 
@@ -61,19 +66,24 @@ CREATE TABLE IF NOT EXISTS `lapangan` (
   `pagi` int(100) DEFAULT NULL,
   `siang` int(100) DEFAULT NULL,
   `malam` int(100) DEFAULT NULL,
+  `gambar` varchar(200) NOT NULL,
   `id_futsal` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_lap`),
   KEY `id_futsal` (`id_futsal`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `lapangan`
 --
 
-INSERT INTO `lapangan` (`id_lap`, `nama_lap`, `deskripsi`, `pagi`, `siang`, `malam`, `id_futsal`) VALUES
-(1, 'lapangan 1', 'rumput sintetis', 80000, 90000, 100000, 11),
-(2, 'lapangan 2', 'rumput sintetis', 80000, 90000, 100000, 11),
-(3, 'lapangan 1', 'rumput sintetis', 75000, 80000, 90000, 12);
+INSERT INTO `lapangan` (`id_lap`, `nama_lap`, `deskripsi`, `pagi`, `siang`, `malam`, `gambar`, `id_futsal`) VALUES
+(1, 'lapangan A', 'rumput sintetis', 90000, 100000, 120000, 'lap_soccer.jpg', 1),
+(2, 'Lapangan 1', 'rumput sintetis', 80000, 90000, 110000, 'lap_jakal.jpg', 2),
+(3, 'Lapangan 2', 'rumput sintetis', 80000, 90000, 120000, 'lap_jakal2.jpg', 2),
+(4, 'Lapangan 3', 'AVA Court', 100000, 120000, 140000, 'lap_jakal3.jpg', 2),
+(5, 'Lapangan 1', 'rumput sintetis', 100000, 110000, 120000, 'lap_djuragan.jpg', 3),
+(6, 'Lapangan B', 'rumput sintetis', 90000, 100000, 120000, 'lap_soccer2.jpg', 1),
+(7, 'lapangan 1', 'rumput sintetis', 100000, 110000, 120000, 'lap_soccer21.jpg', 4);
 
 -- --------------------------------------------------------
 
@@ -170,8 +180,8 @@ CREATE TABLE IF NOT EXISTS `member` (
 --
 
 INSERT INTO `member` (`id_member`, `first_name`, `last_name`, `id_card`, `ttl`, `team_name`, `address`, `phone`, `id_user`) VALUES
-(1, 'yuda', 'yuda', 'yuad', '1993-08-15', 'yuda', 'yuda', 'yuda', 10),
-(2, 'Ismail', 'Adima', '1231312', '1994-05-15', 'Ismail', 'Ismail', '0123901391', 12);
+(1, 'yuda', 'hermawan', '12/336932/SV/01885', '1992-11-28', 'G82', 'sendowo G82 Sleman', '+6285747586186', 2),
+(2, 'ismail', 'adima', '12/336909/SV/01871', '1994-05-15', 'black team', 'sendowo G82 Sleman', '+628156706780', 3);
 
 -- --------------------------------------------------------
 
@@ -183,29 +193,29 @@ CREATE TABLE IF NOT EXISTS `operator` (
   `id_futsal` int(10) NOT NULL AUTO_INCREMENT,
   `nama_futsal` varchar(100) DEFAULT NULL,
   `alamat` text,
-  `kota` varchar(200) NOT NULL,
+  `id_kota` int(10) NOT NULL,
+  `latitude` varchar(255) NOT NULL,
+  `longitude` varchar(255) NOT NULL,
+  `no_rek` varchar(200) NOT NULL,
+  `phone` varchar(100) NOT NULL,
   `deskripsi` text,
   `gambar` varchar(255) DEFAULT NULL,
   `status` enum('unconfirmed','confirmed') NOT NULL DEFAULT 'unconfirmed',
   `id_user` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_futsal`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `operator`
 --
 
-INSERT INTO `operator` (`id_futsal`, `nama_futsal`, `alamat`, `kota`, `deskripsi`, `gambar`, `status`, `id_user`) VALUES
-(11, 'Akasha', 'Akasha', 'Babarsari', 'Akasha', 'Akasha1.jpg', 'confirmed', 8),
-(12, 'Centaur', 'Centaur', 'Baciro', 'Centaur', 'Centaur1.jpg', 'confirmed', 9),
-(13, 'soccer', 'soccer', 'Babarsari', 'soccer', 'Ancient_Apparition.jpg', 'confirmed', 11),
-(14, 'jakal', 'jakal', 'Baciro', 'jakal', NULL, 'confirmed', 13),
-(15, 'codet', 'codet', '', 'codet', NULL, 'confirmed', 14),
-(16, 'adi', 'adi', '', 'adi', NULL, 'confirmed', 15),
-(17, 'adi', 'adi', '', 'adi', NULL, 'confirmed', 16),
-(18, 'rio', 'rio', '', 'rio', NULL, 'confirmed', 17),
-(19, 'ajis', 'ajis', '', 'ajis', NULL, 'confirmed', 18);
+INSERT INTO `operator` (`id_futsal`, `nama_futsal`, `alamat`, `id_kota`, `latitude`, `longitude`, `no_rek`, `phone`, `deskripsi`, `gambar`, `status`, `id_user`) VALUES
+(1, 'soccer', 'Jl Kaliurang km 6', 20, '', '', '1234567', '0274113333', 'Buka dari jam 07.00 - 22.00', 'soccer.jpg', 'confirmed', 4),
+(2, 'jakal 7', 'Jl kaliurang km 7', 20, '', '', '12345', '0274111333', 'Buka dari jam 07.00 - 22.00', 'jakal7.jpg', 'confirmed', 5),
+(3, 'djuragan', 'Jl Pandega Martha no.55', 46, '', '', '12345', '0274111444', 'Buka dari jam 07.00 - 22.00', 'djuragan.jpg', 'confirmed', 6),
+(4, 'komsi', 'Komsi', 12, '', '', '0808080808', '08080808080', 'Komsi', 'lap_jakal31.jpg', 'confirmed', 7),
+(5, 'map', 'map', 1, '-7.837363561988365', '110.36433467724612', 'map', 'map', 'map', 'jalur_mini1.JPG', 'confirmed', 9);
 
 -- --------------------------------------------------------
 
@@ -227,18 +237,20 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   KEY `id_futsal` (`id_futsal`),
   KEY `id_lapangan` (`id_lapangan`),
   KEY `id_member` (`id_member`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `transaksi`
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_futsal`, `id_lapangan`, `id_member`, `tgl_booking`, `jam`, `harga`, `status`, `nama_team`) VALUES
-(3, 12, 3, 1, '2015-02-16', '07.00', 75000, 'booked', 'yuda'),
-(4, 11, 1, 1, '2015-02-17', '07.00', 80000, 'booked', 'yuda'),
-(5, 12, 3, 1, '2015-02-17', '08.00', 75000, 'waiting', 'yuda'),
-(6, 12, 3, 1, '2015-02-17', '09.00', 75000, 'waiting', 'yuda'),
-(7, 12, 3, 1, '2015-02-17', '20.00', 75000, 'waiting', 'yuda');
+(2, 1, 6, 2, '2015-02-19', '20.00', 120000, 'booked', 'black team'),
+(3, 1, 6, 2, '2015-02-28', '20.00', 120000, 'booked', 'black team'),
+(4, 3, 5, 1, '2015-02-19', '07.00', 100000, 'booked', 'G82'),
+(5, 2, 4, 1, '2015-02-25', '21.00', 140000, 'waiting', 'G82'),
+(6, 3, 5, 1, '2015-02-24', '17.00', 110000, 'waiting', 'G82'),
+(7, 4, 7, 2, '2015-02-25', '08.00', 100000, 'booked', 'black team'),
+(8, 3, 5, 1, '2015-04-28', '07.00', 100000, 'waiting', 'G82');
 
 -- --------------------------------------------------------
 
@@ -252,25 +264,22 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(100) DEFAULT NULL,
   `role` enum('admin','operator','user') DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
-(1, 'superadmin', '37a5b2d8e26b07f0aca7fe5bff9eec01', 'admin'),
-(8, 'akasha', '5d7a2ce0e837d6dc0382520a0f0c4f2d', 'operator'),
-(9, 'centaur', '47aeba35bb9d1ad72adfd802fab8a7c0', 'operator'),
-(10, 'yuda', 'ac9053a8bd7632586c3eb663a6cf15e4', 'user'),
-(11, 'soccer', 'da443a0ad979d5530df38ca1a74e4f80', 'operator'),
-(12, 'ismail', 'f3b32717d5322d7ba7c505c230785468', 'user'),
-(13, 'jakal', '46ee350cd0a08748c755d026648470cf', 'operator'),
-(14, 'codet', '61bcf60d56ac3f6351acdd957849c20b', 'operator'),
-(15, 'adi', 'c46335eb267e2e1cde5b017acb4cd799', 'operator'),
-(16, 'adi', 'c46335eb267e2e1cde5b017acb4cd799', 'operator'),
-(17, 'rio', 'd5ed38fdbf28bc4e58be142cf5a17cf5', 'operator'),
-(18, 'ajis', '8fbd9a9b73736dac170c41f46b13ec6f', 'operator');
+(1, 'superadmin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'yuda.hermawan@mail.ugm.ac.id', 'ac9053a8bd7632586c3eb663a6cf15e4', 'user'),
+(3, 'ismail.adima@mail.ugm.ac.id', 'f3b32717d5322d7ba7c505c230785468', 'user'),
+(4, 'soccer@gmail.com', 'da443a0ad979d5530df38ca1a74e4f80', 'operator'),
+(5, 'jakal7@gmail.com', 'e47ca3f126b8167245542455c9034804', 'operator'),
+(6, 'djuragan@gmail.com', '5c75760a7a8815e24f99525891f48883', 'operator'),
+(7, 'komsi', 'dc2ddf74718e7f2764de53a13d892200', 'operator'),
+(8, 'map', '1d78dc8ed51214e518b5114fe24490ae', 'operator'),
+(9, 'map', 'd41d8cd98f00b204e9800998ecf8427e', 'operator');
 
 --
 -- Constraints for dumped tables

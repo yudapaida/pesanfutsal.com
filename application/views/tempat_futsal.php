@@ -109,7 +109,7 @@ foreach ($futsal as $item ){
 										        <script type="text/javascript">
 										              
 										//              menentukan koordinat titik tengah peta
-										              var myLatlng = new google.maps.LatLng(-7.750186, 110.385815);
+										              var myLatlng = new google.maps.LatLng(<?php echo $item['latitude']; ?>, <?php echo $item['longitude']; ?>);
 										 
 										//              pengaturan zoom dan titik tengah peta
 										              var myOptions = {
