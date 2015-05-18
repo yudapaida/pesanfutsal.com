@@ -86,12 +86,12 @@
 							<div class="filter">
 								<div id="filter-menu">
 									<form action="#">
-										<div class="filter-menu">
+									<!-- 	<div class="filter-menu">
 											<?php
 											$js='onChange="fungsifilter(this.value);"'; 
 											echo form_dropdown('lokasi',$kota['kota'],'',$js);
 											?>
-										</div>
+										</div> -->
 										<div class="filter-menu">
 											<input type="text" id="formcari" class="form-control" name="keyword" placeholder="Cari Tempat Futsal">
 										</div>

@@ -47,7 +47,7 @@
 										<td><?= $row['tgl']; ?></td>
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
-										<td>kosong</td>
+										<td><?= $row['gambar']; ?></td>
 										<?php if($row['status'] !="booked"): ?>
 										<td><a href="<?= base_url('admin/konfirmasi_status');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi</a></td>
 										<?php else : ?>
