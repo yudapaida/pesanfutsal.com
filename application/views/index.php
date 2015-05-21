@@ -1,3 +1,13 @@
+<?php
+	// foreach ($data as $key => $value) {
+
+		// print_r($data[1]['gambar']);
+		// die();
+	// }
+
+?>
+
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -57,28 +67,7 @@
 							<i class="glyphicon glyphicon-list-alt"></i>
 							Daftar Tempat Futsal
 							</a>
-						<!-- 	<a href="#"  class="btn btn-lg btn-inversed">
-							<i class="glyphicon glyphicon-info-sign"></i>
-							Tentang PESANFUTSAL.com
-							</a> -->
-							<!-- <div class="search-form">
-								<form action="#" method="GET" id="search-top">
-									<input type="hidden" name="action" value="#">
-									<span class="form-inputs">
-										<select name="wilayah_id" class="wilayah" style="display: none;">
-											<option value="#">Pilih Lokasi</option>
-										</select>
-										<div class="btn-group bootstrap-select wilayah">
-											<button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="#" title="Pilih Lokasi">
-												<span class="filter-option pull-left">Pilih Lokasi</span>
-												$nbsp;
-												<span class="caret"></span>
-											</button>
-										</div>
-									</span>
-								</form>
-							</div> -->
-
+						
 						</div>
 					</div>
 				</div>
@@ -133,28 +122,35 @@
 											<div class="section-title">
 												<h2><span>NEWCOMER</span></h2>
 											</div>
+																														
 											<div class="row futsal-baru">
-												<div class="rounded">
-													<a href="#" title="Akasha">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+												<div class="rounded">									
+													<a href="<?php echo base_url('futsal/profile?id='.$data[0]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$data[0]['gambar']);?>">
 													</a>
+													
 												</div>
-												<div class="rounded">
-													<a href="#" title="Abaddon">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+												<div class="rounded">									
+													<a href="<?php echo base_url('futsal/profile?id='.$data[1]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$data[1]['gambar']);?>">
 													</a>
+													
 												</div>
-												<div class="rounded">
-													<a href="#" title="Alchemist">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+												<div class="rounded">									
+													<a href="<?php echo base_url('futsal/profile?id='.$data[2]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$data[2]['gambar']);?>">
 													</a>
+													
 												</div>
-												<div class="rounded">
-													<a href="#" title="Alleria">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+												<div class="rounded">									
+													<a href="<?php echo base_url('futsal/profile?id='.$data[3]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$data[3]['gambar']);?>">
 													</a>
+													
 												</div>
+								
 											</div>
+											
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -165,7 +161,7 @@
 											<div class="row futsal-baru">
 												<div class="rounded">
 													<a href="#" title="Akasha">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+														<img src="<?php echo base_url('assets/image/futsal/jakal7.jpg');?>">
 													</a>
 												</div>
 												<div class="rounded">

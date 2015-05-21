@@ -1,5 +1,6 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/base/ui.all.css');?>" />
     <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/development-bundle/jquery.validate.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
@@ -33,51 +34,52 @@
 							<div class="col-md-8 col-md-offset-2">
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">REGISTER</h3>
-									<form action="<?= base_url().'register/member'; ?>" method="POST">
+
+									<form action="<?= base_url().'register/member'; ?>" method="POST" >
 										<p>
 											<label>First Name<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="first_name" placeholder="First Name" class="form-control">
+											<input type="text" name="first_name" placeholder="First Name" class="form-control" required>
 										</p>
 										<p>
 											<label>Last Name<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="last_name" placeholder="Last Name" class="form-control">
+											<input type="text" name="last_name" placeholder="Last Name" class="form-control" required>
 										</p>
 										<p>
 											<label>ID Card<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="id_card" placeholder="First Name" class="form-control">
+											<input type="text" name="id_card" placeholder="First Name" class="form-control" required>
 										</p>
 										<p>
 											<label>Email<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="username" placeholder="Email" class="form-control">
+											<input type="email" name="username" placeholder="Email" class="form-control" required>
 										</p>
 										<p>
 											<label>Password<span class="text-danger">*</span></label>
 											<br>
-											<input type="password" name="password" placeholder="Password" class="form-control">
+											<input type="password" name="password" placeholder="Password" class="form-control" required>
 										</p>
 										<p>
 											<label>Date of Birth<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" id="tanggal" name="ttl" placeholder="yyyy-mm-dd" class="form-control">
+											<input type="text" id="tanggal" name="ttl" placeholder="yyyy-mm-dd" class="form-control" required>
 										</p>
 										<p>
 											<label>Team Name<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="team_name" placeholder="Team Name" class="form-control">
+											<input type="text" name="team_name" placeholder="Team Name" class="form-control" required>
 										</p>
 										<p>
 											<label>Address<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="address" placeholder="Address" class="form-control">
+											<input type="text" name="address" placeholder="Address" class="form-control" required>
 										</p>
 										<p>
 											<label>Mobile Phone<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="phone" placeholder="Mobile Phone" class="form-control">
+											<input type="number" minlength="4" maxlength="15" name="phone" placeholder="Mobile Phone" class="form-control" required>
 										</p>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="REGISTER"></p>
 									</form>

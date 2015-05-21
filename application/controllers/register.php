@@ -13,11 +13,13 @@ class Register extends CI_Controller
 
 	public function member(){
 
-		$this->load->model('member_model');
-		$this->member_model->insert_member();
-		redirect(base_url());
+			$this->load->model('member_model');
+			$this->member_model->insert_member();
+			redirect(base_url());
+		
 	}
 
+	
 	public function do_upload()
 		{
 			//memasukkan data operator dan upload gambar
@@ -29,7 +31,7 @@ class Register extends CI_Controller
 
 			// $this->load->model('Crud_model','crud',TRUE);
 			// $this->crud->operator_insert();
-
+			$this->load->library('image_lib');
 			$this->load->library('upload', $config);
 
 			if (!$this->upload->do_upload())
@@ -44,6 +46,26 @@ class Register extends CI_Controller
 					$this->member_model->insert_admin($filename);
 				}
 				//$this->load->view('berhasil');
+				
+
+				//resize 
+				$fileNameResize = $config['upload_path'].$filename;
+				$size=array(
+						array('name'	=> 'thumb','width'	=> 72, 'height'	=> 72, 'quality'	=> '100%')
+					);
+				$resize = array();
+				foreach($size as $r){	
+				$resize = array(
+					"width" => $r['width'],
+					"height" => $r['height'],
+					"quality" => $r['quality'],
+					"source_image" => './assets/image/futsal/'.$filename,
+					"new image" => './assets/image/icon/'.$filename
+					);
+				$this->image_lib->initialize($resize);
+				$this->image_lib->resize();
+				}
+
 				redirect(base_url());
 			}
 		}

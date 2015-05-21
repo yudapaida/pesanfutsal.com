@@ -31,7 +31,6 @@
 			return $group;
 
 		}else {
-			echo "username dan password salah";
 			return FALSE;
 		}
 	}

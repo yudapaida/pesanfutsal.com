@@ -11,8 +11,11 @@ class Futsal extends CI_Controller
 
 	public function index()
 	{	
-		// $this->load->view('header');
-		$this->load->view('index');
+		//load index_model
+		$this->load->model('index_model');
+		$data['data'] = $this->index_model->popular();
+		
+		$this->load->view('index',$data);
 		// $this->load->view('footer');
 	}
 

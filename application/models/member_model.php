@@ -11,11 +11,11 @@ class Member_model extends CI_Model {
 	    {
 
 	    // Buat forign_key id_user untuk tabel member
-	    	$query ="SELECT max(id_user)+1 as id from user";
-			$foreign = $this->db->query($query);
-			foreach ($foreign->result() as $key) {
-				$coba = $key->id;
-			}
+	  //   	$query ="SELECT max(id_user)+1 as id from user";
+			// $foreign = $this->db->query($query);
+			// foreach ($foreign->result() as $key) {
+			// 	$coba = $key->id;
+			// }
 
 		// insert data ke tabel user
 			$password =$_POST['password'];
@@ -23,6 +23,15 @@ class Member_model extends CI_Model {
 			$data_user['password'] = md5($password);
 			$data_user['role'] = 'user';
 			$insert_user = $this->db->insert('user', $data_user);
+
+		// Buat forign_key id_user untuk tabel member
+			$query="SELECT max(id_user) as id FROM user ";
+			$foreign=$this->db->query($query);
+			foreach ($foreign->result() as $key) {
+				$foreign = $key->id;
+			}
+			// print_r($foreign);
+			// die();
 
 		// insert data ke tabel member
 			$data['first_name']=$_POST['first_name'];
@@ -32,7 +41,7 @@ class Member_model extends CI_Model {
 			$data['team_name']=$_POST['team_name'];
 			$data['address']=$_POST['address'];
 			$data['phone']=$_POST['phone'];
-			$data['id_user']= $coba;
+			$data['id_user']= $foreign;
 			$insert_member =  $this->db->insert('member', $data);
 
 			return $insert_user && $insert_member;
@@ -41,11 +50,11 @@ class Member_model extends CI_Model {
 	    
 	    public function insert_admin($filename)
 	    {
-	    	$query ="SELECT max(id_user)+1 as id from user";
-			$foreign = $this->db->query($query);
-			foreach ($foreign->result() as $key) {
-				$coba = $key->id;
-			}
+	  //   	$query ="SELECT max(id_user)+1 as id from user";
+			// $foreign = $this->db->query($query);
+			// foreach ($foreign->result() as $key) {
+			// 	$coba = $key->id;
+			// }
 
 			//insert data user
 			$password =$_POST['password'];
@@ -54,7 +63,14 @@ class Member_model extends CI_Model {
 			$data_user['role'] = 'operator';
 			$insert_user = $this->db->insert('user', $data_user);
 
-			//insert data member
+			// Buat forign_key id_user untuk tabel member
+			$query="SELECT max(id_user) as id FROM user ";
+			$foreign=$this->db->query($query);
+			foreach ($foreign->result() as $key) {
+				$foreign = $key->id;
+			}
+
+			//insert data admin
 			$data['nama_futsal']=$_POST['nama_futsal'];
 			$data['alamat']=$_POST['alamat'];
 			$data['id_kota'] =$_POST['id_kota'];
@@ -64,7 +80,7 @@ class Member_model extends CI_Model {
 			$data['phone'] = $_POST['phone'];
 			$data['deskripsi']=$_POST['deskripsi'];
 			$data['gambar']=$filename;
-			$data['id_user']= $coba;
+			$data['id_user']= $foreign;
 
 		
 

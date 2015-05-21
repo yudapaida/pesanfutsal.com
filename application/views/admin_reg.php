@@ -37,23 +37,23 @@
 										<p>
 											<label>Nama Futsal<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="nama_futsal" placeholder="Nama Futsal" class="form-control">
+											<input type="text" name="nama_futsal" placeholder="Nama Futsal" class="form-control" required>
 										</p>
 										<p>
 											<label>Email<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="username" placeholder="Email" class="form-control">
+											<input type="email" name="username" placeholder="Email" class="form-control" required>
 										</p>
 										<p>
 											<label>Password<span class="text-danger">*</span></label>
 											<br>
-											<input type="password" name="password" placeholder="Password" class="form-control">
+											<input type="password" name="password" placeholder="Password" class="form-control" required>
 										</p>
 										<p>
 											<label>Alamat<span class="text-danger">*</span></label>
 											<br>
 											<!-- <input type="text" name="username" placeholder="Email" class="form-control"> -->
-											<textarea input="text" name="alamat" rows="3" class="form-control" placeholder="Alamat"></textarea>
+											<textarea input="text" name="alamat" rows="3" class="form-control" placeholder="Alamat" required></textarea>
 										</p>
 										<p>
 											
@@ -115,12 +115,12 @@
 										<p>
 											<label>Nomor Rekening<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="no_rek" placeholder="Nomor Rekening" class="form-control">
+											<input type="number" name="no_rek" placeholder="Nomor Rekening" class="form-control" required>
 										</p>
 										<p>
 											<label>Nomor Telepon<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="phone" placeholder="Nomor Telepon" class="form-control">
+											<input type="number" name="phone" placeholder="Nomor Telepon" class="form-control" required>
 										</p>
 										<p>
 											<label>Deskripsi<span class="text-danger">*</span></label>
