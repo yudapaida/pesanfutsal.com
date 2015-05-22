@@ -10,8 +10,8 @@ class Coba extends CI_Controller
 	}
 
 	public function popular(){
-		$this->load->model('coba_model');
-		$data = $this->coba_model->popular();
+		$this->load->model('index_model');
+		$data = $this->index_model->popular();
 
 		print_r($data);
 	}

@@ -31,12 +31,12 @@ class Register extends CI_Controller
 
 			// $this->load->model('Crud_model','crud',TRUE);
 			// $this->crud->operator_insert();
-			$this->load->library('image_lib');
+			
 			$this->load->library('upload', $config);
 
 			if (!$this->upload->do_upload())
 			{
-			$this->load->view('konfirmasi_bayar');
+				$this->load->view('konfirmasi_bayar');
 			}
 			else
 			{
@@ -60,9 +60,10 @@ class Register extends CI_Controller
 					"height" => $r['height'],
 					"quality" => $r['quality'],
 					"source_image" => './assets/image/futsal/'.$filename,
-					"new image" => './assets/image/icon/'.$filename
+					"new_image" => './assets/image/icon/'.$filename
 					);
-				$this->image_lib->initialize($resize);
+				// $this->image_lib->initialize($resize);
+				$this->load->library('image_lib',$resize);
 				$this->image_lib->resize();
 				}
 

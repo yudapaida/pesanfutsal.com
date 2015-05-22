@@ -1,13 +1,10 @@
-<?php
-	// foreach ($data as $key => $value) {
+<?php 
 
-		// print_r($data[1]['gambar']);
-		// die();
-	// }
+// print_r($popular);
+
+// die();
 
 ?>
-
-
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -125,26 +122,26 @@
 																														
 											<div class="row futsal-baru">
 												<div class="rounded">									
-													<a href="<?php echo base_url('futsal/profile?id='.$data[0]['id_futsal']); ?>" title="Akasha">
-														<img src="<?php echo base_url('assets/image/futsal/'.$data[0]['gambar']);?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$new_comer[0]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$new_comer[0]['gambar']);?>">
 													</a>
 													
 												</div>
 												<div class="rounded">									
-													<a href="<?php echo base_url('futsal/profile?id='.$data[1]['id_futsal']); ?>" title="Akasha">
-														<img src="<?php echo base_url('assets/image/futsal/'.$data[1]['gambar']);?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$new_comer[1]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$new_comer[1]['gambar']);?>">
 													</a>
 													
 												</div>
 												<div class="rounded">									
-													<a href="<?php echo base_url('futsal/profile?id='.$data[2]['id_futsal']); ?>" title="Akasha">
-														<img src="<?php echo base_url('assets/image/futsal/'.$data[2]['gambar']);?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$new_comer[2]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$new_comer[2]['gambar']);?>">
 													</a>
 													
 												</div>
 												<div class="rounded">									
-													<a href="<?php echo base_url('futsal/profile?id='.$data[3]['id_futsal']); ?>" title="Akasha">
-														<img src="<?php echo base_url('assets/image/futsal/'.$data[3]['gambar']);?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$new_comer[3]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$new_comer[3]['gambar']);?>">
 													</a>
 													
 												</div>
@@ -160,23 +157,23 @@
 											</div>
 											<div class="row futsal-baru">
 												<div class="rounded">
-													<a href="#" title="Akasha">
-														<img src="<?php echo base_url('assets/image/futsal/jakal7.jpg');?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$popular[0]['id_futsal']); ?>" title="Akasha">
+														<img src="<?php echo base_url('assets/image/futsal/'.$popular[0]['gambar']);?>">
 													</a>
 												</div>
 												<div class="rounded">
-													<a href="#" title="Abaddon">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$popular[1]['id_futsal']); ?>" title="Abaddon">
+														<img src="<?php echo base_url('assets/image/futsal/'.$popular[1]['gambar']);?>">
 													</a>
 												</div>
 												<div class="rounded">
-													<a href="#" title="Alchemist">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$popular[2]['id_futsal']); ?>" title="Alchemist">
+														<img src="<?php echo base_url('assets/image/futsal/'.$popular[2]['gambar']);?>">
 													</a>
 												</div>
 												<div class="rounded">
-													<a href="#" title="Alleria">
-														<img src="<?php echo base_url('assets/image/Abaddon.jpg');?>">
+													<a href="<?php echo base_url('futsal/profile?id='.$popular[3]['id_futsal']); ?>" title="Alleria">
+														<img src="<?php echo base_url('assets/image/futsal/'.$popular[3]['gambar']);?>">
 													</a>
 												</div>
 											</div>
