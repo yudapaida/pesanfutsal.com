@@ -27,6 +27,9 @@ class Login_ctr extends CI_Controller {
 		$this->load->model('login_model','login'); //rename login_model jadi login
 		$data=$this->login->login($username,$password); //manggil model dan fungsinya
 
+		if($data==FALSE){
+			echo " gagal login";
+		}
 		//direct ke halaman sesuai group usernya
 		if($data == "admin"){
 			// redirect('admin_ctr/view_operator');

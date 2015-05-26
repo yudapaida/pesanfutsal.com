@@ -25,6 +25,13 @@
 			return TRUE;
 		}
 
+		public function hapus_transaksi($id_transaksi)
+		{
+			$query = "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'";
+			$result = $this->db->query($query);
+			return TRUE;
+		}
+
 		public function view_lap()
 		{
 			$username = $this->session->userdata('akun');

@@ -20,8 +20,8 @@
 									<h3 style="margin-top: 0px;">LOGIN</h3>
 									<span class="help-block">Login dengan alamat emain anda:</span>
 									<form action="<?php echo base_url();?>login_ctr/masuk" method="POST">
-										<p><input type="text" name="username" placeholder="Email" class="form-control"></p>
-										<p><input type="password" name="password" placeholder="Password" class="form-control"></p>
+										<p><input type="email" name="username" placeholder="Email" class="form-control" required></p>
+										<p><input type="password" name="password" placeholder="Password" class="form-control" required></p>
 										<div class="g-recaptcha" data-sitekey="6LcoQwETAAAAAGZ6IQ7R4Y3yJrQgDPVWFHsDxQpf"></div>
 										<p></p>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="LOGIN"></p>

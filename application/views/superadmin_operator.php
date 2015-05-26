@@ -13,7 +13,7 @@
 					<li><a href="<?= base_url('member/password');?>">Change Password</a></li> -->
 					<li><a href="<?= base_url('superadmin');?>">Operator Futsal</a></li>
 					<li><a href="<?= base_url('superadmin/member');?>">Member Futsal</a></li>
-					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>
+					<!-- <li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li> -->
 				</ul>
 			</div>
 			<div id="gerai-menu main" class="col-md-15" style="margin-left: 0px">

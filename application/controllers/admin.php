@@ -25,6 +25,14 @@
 			$this->load->view('footer');
 		}
 
+		public function hapus_transaksi()
+		{	
+			$id_transaksi=$_GET['no'];
+			$data = $this->admin_model->hapus_transaksi($id_transaksi);
+			redirect('admin');
+
+		}
+
 		public function konfirmasi_status()
 		{
 			$id_transaksi=$_GET['no'];

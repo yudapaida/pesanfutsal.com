@@ -10,7 +10,7 @@
 					<li><a href="<?= base_url('futsal/listfutsal');?>">Booking</a></li>
 					<li><a href="#" style="color: #008000;">Transaksi</a></li>
 					<li><a href="<?= base_url('member/profile');?>">Edit Profil</a></li>
-					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>
+					<!-- <li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li> -->
 				</ul>
 			</div>
 			<div id="gerai-menu main" class="col-md-15" style="margin-left: 0px">
@@ -45,7 +45,7 @@
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
 										<?php if($row['status'] !="booked"): ?>
-										<td><a href="<?= base_url('member/konfirmasi');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi</a></td>
+										<td><a href="<?= base_url('member/konfirmasi');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi Pembayaran</a></td>
 										<?php else : ?>
 										<td>Sudah Dikonfirmasi</td>
 										<?php endif; ?>
