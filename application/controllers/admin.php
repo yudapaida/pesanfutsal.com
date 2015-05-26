@@ -142,6 +142,7 @@
 			$this->load->model('lokasi_model');
 			$datafutsal['profile'] = $this->admin_model->view_profile();
 			$datafutsal['data'] = $this->lokasi_model->daftar_lokasi();
+			
 			$this->load->view('header_admin');
 			$this->load->view('edit_data_futsal', $datafutsal);
 			$this->load->view('footer');

@@ -16,10 +16,19 @@
 			return $query->result_array();
 		}
 
-		public function delete_operator($id_futsal)
+		public function view_member()
 		{
-			$query = "DELETE FROM operator WHERE id_futsal='$id_futsal'";
+			$query = $this->db->query('SELECT * FROM member');
+			return $query->result_array();
+		}
+
+		public function delete_operator($id_user)
+		{
+			$query = "DELETE FROM operator WHERE id_user='$id_user'";
 			$this->db->query($query);
+
+			$query2 = "DELETE FROM user WHERE id_user='$id_user'";
+			$this->db->query($query2);
 		}
 
 		public function konfirmasi($id_futsal)
@@ -28,5 +37,37 @@
 			$result = $this->db->query($query);
 			return TRUE;
 		}
+
+		public function delete_member($id_user)
+		{
+			$query = "DELETE FROM member WHERE id_user='$id_user'";
+			$this->db->query($query);
+
+			$query2 = "DELETE FROM user WHERE id_user='$id_user'";
+			$this->db->query($query2);
+		}
+
+		public function edit_member($id_member)
+		{
+			$query = "SELECT * FROM member WHERE id_member='$id_member'";
+			$data = $this->db->query($query);
+			return $data->result_array();
+		}
+
+		public function update_member($id_member,$first_name,$last_name,$id_card,$ttl,$team_name,$address,$phone)
+		{
+			$query="UPDATE member SET first_name='$first_name',
+									 last_name='$last_name',
+									 id_card='$id_card',
+									 ttl='$ttl',
+									 team_name='$team_name',
+									 address='$address',
+									 phone='$phone'
+				WHERE id_member='$id_member'";
+				
+			$result=$this->db->query($query);
+			return TRUE;
+		}
+
 	}
 ?>

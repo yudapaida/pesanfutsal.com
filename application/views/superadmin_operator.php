@@ -11,7 +11,8 @@
 					<li><a href="<?= base_url('admin/lapangan');?>">Lapangan</a></li>
 					<li><a href="<?= base_url('admin/profile');?>">Edit Data Futsal</a></li>
 					<li><a href="<?= base_url('member/password');?>">Change Password</a></li> -->
-					<li><a href="#">Konfirmasi</a></li>
+					<li><a href="<?= base_url('superadmin');?>">Operator Futsal</a></li>
+					<li><a href="<?= base_url('superadmin/member');?>">Member Futsal</a></li>
 					<li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li>
 				</ul>
 			</div>
@@ -20,7 +21,7 @@
 					<div class="menu-list">
 						<div class="section-title">
 							<h2>
-								<span>DAFTAR KONFIRMASI</span>
+								<span>DATA OPERATOR FUTSAL</span>
 							</h2>
 						</div>
 						<div id="transaksi">
@@ -53,7 +54,7 @@
               							else { ?>
               								<a href="<?php echo base_url('/superadmin/konfirmasi')?>?no=<?php echo $row['id_futsal']; ?>" class="btn btn-success">Confirm</a>
               							<?php } ?>
-              							<a href="<?php echo base_url('/superadmin/hapus')?>?no=<?php echo $row['id_futsal']; ?>"  class="btn btn-danger">Delete</a></td>
+              							<a href="<?php echo base_url('/superadmin/hapus')?>?no=<?php echo $row['id_user']; ?>"  class="btn btn-danger">Delete</a></td>
             							</td>
 									</tr>
 									<?php } ?>
