@@ -126,12 +126,12 @@
 		public function view_profile()
 		{
 			$username = $this->session->userdata('akun');
-			$query = "SELECT nama_futsal as 'nama', alamat, id_kota, no_rek as 'rekening',phone, deskripsi FROM user, operator WHERE user.id_user=operator.id_user AND username='$username'";
+			$query = "SELECT nama_futsal as 'nama', alamat, id_kota, no_rek as 'rekening',phone, deskripsi, latitude, longitude FROM user, operator WHERE user.id_user=operator.id_user AND username='$username'";
 			$data = $this->db->query($query);
 			return $data->result_array();
 		}
 
-		public function update_profile($nama_futsal,$alamat,$id_kota,$no_rek,$phone,$deskripsi)
+		public function update_profile($nama_futsal,$alamat,$id_kota,$no_rek,$phone,$deskripsi,$latitude,$longitude)
 		{
 			$username = $this->session->userdata('akun');
 			$queryuser = "SELECT operator.id_user as 'id' FROM user,operator WHERE operator.id_user=user.id_user AND username='$username'";
@@ -142,12 +142,29 @@
 			$query="UPDATE operator SET nama_futsal='$nama_futsal',
 									 alamat='$alamat',
 									 id_kota='$id_kota',
+									 latitude='$latitude',
+									 longitude='$longitude',
 									 no_rek='$no_rek',
 									 phone='$phone',
 									 deskripsi='$deskripsi'
 				where id_user=$coba";
 		$result=$this->db->query($query);
 		return TRUE;
+		}
+
+		public function laporan($bln)
+		{
+			$username = $this->session->userdata('akun');
+
+			if($bln==0){$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND user.username='$username' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan ";}
+			else {$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND month(transaksi.tgl_booking)='$bln' AND user.username='$username' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan";}
+
+			$data = $this->db->query($query);
+			// print_r($data);
+			// die();
+			
+			return $data->result_array();
+
 		}
 	}
 ?>

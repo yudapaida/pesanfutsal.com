@@ -159,7 +159,7 @@
 		public function update_profile()
 		{
 			$result=$this->admin_model->update_profile($_POST['nama_futsal'],$_POST['alamat'],
-			$_POST['id_kota'],$_POST['no_rek'],$_POST['phone'],$_POST['deskripsi']);
+			$_POST['id_kota'],$_POST['no_rek'],$_POST['phone'],$_POST['deskripsi'],$_POST['latitude'],$_POST['longitude']);
 
 			if($result){
 				redirect('admin');
@@ -171,6 +171,46 @@
 			$this->load->view('header_admin');
 			$this->load->view('laporan_admin');
 			$this->load->view('footer');
+		}
+
+		public function filter_bln()
+		{
+			$bln = $this->input->post('id_bln');
+			// $bln=2;
+			$data = $this->admin_model->laporan($bln);
+
+			// print_r($data);
+			// die();
+			echo '<table>
+						<thead>
+							<tr>
+								<th> Lapangan </th>
+								<th> Banyak Transaksi </th>
+								<th> Total Transaksi </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>';
+			if($data){
+			foreach ($data as $key ) {
+				# code...
+				echo '
+								<td>'.$key['nama_lap'].'</td>
+								<td>'.$key['jum'].'</td>
+								<td> Rp '.$key['total'].'</td>
+				';
+			}
+		}else{
+				echo '
+								<td> - </td>
+								<td> 0 </td>
+								<td> Rp.0 </td> 
+				';
+		}
+			echo '</tr>
+						</tbody>
+					   </table>';
+			
 		}
 	}
 ?>
