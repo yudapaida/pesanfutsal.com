@@ -96,6 +96,7 @@ class Futsal extends CI_Controller
 
 	   	// data lapangan
 			$lapangan = $this->futsal_model->list_lapangan($id_futsal);
+			//nama lapangan 	
 			foreach ($lapangan as $item) {
 				$lap['lapangan'][0]="-Pilih Lapangan-";
 				$lap['lapangan'][$item['id_lap']] = $item['nama_lap'];
@@ -104,6 +105,7 @@ class Futsal extends CI_Controller
 		// parsing data
 			$data['futsal'] = $futsal;
 			$data['lapangan'] = $lap;
+			$data['datalap'] = $lapangan;
 		 			
 			$this->load->view('header');
 			$this->load->view('tempat_futsal',$data);

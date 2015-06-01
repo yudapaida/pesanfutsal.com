@@ -4,6 +4,9 @@
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+
 	<script type="text/javascript">
 	    $(function(){
 	            $("#tglbooking").datepicker({
@@ -93,9 +96,46 @@ foreach ($futsal as $item ){
 											</div>
 										</div>
 										<div class="gerai-images">
-											<div class="gambar corusel">
-												<img src="<?= base_url('assets/image/futsal/'.$item['gambar']);?>">
-											</div>
+											
+
+											<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+											  <!-- Indicators -->
+											  <ol class="carousel-indicators">
+											  	<?php for($i=0; $i<count($datalap);$i++) {
+											  	 ?>
+											    <li data-target="#carousel-example-generic" data-slide-to="<?= $i?>" class="active"></li>
+											
+											  	<?php } ?>
+											  </ol>
+											 
+											  <!-- Wrapper for slides -->
+											  <div class="carousel-inner">
+											  	<?php for($i=0; $i<count($datalap);$i++) {
+											  		if($i==0){
+											  			echo '<div class="item active">';}
+											  		else{echo '<div class="item">';}
+											  	?>		
+													    
+													      <img src="<?= base_url('assets/image/futsal/'.$datalap[$i]['gambar']);?>" alt="...">
+													      <div class="carousel-caption">
+													          <h3>Caption Text</h3>
+													      </div>
+													    </div>
+													
+											    <?php } ?>
+											    
+											  </div>
+											 
+											  <!-- Controls -->
+											  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+											    <span class="glyphicon glyphicon-chevron-left"></span>
+											  </a>
+											  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+											    <span class="glyphicon glyphicon-chevron-right"></span>
+											  </a>
+											</div> <!-- Carousel -->
+
+
 											
 										</div>
 									</div>
