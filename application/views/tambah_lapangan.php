@@ -24,29 +24,29 @@
 										<p>
 											<label>Nama Lapangan<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="nama_lap" placeholder="Nama Lapangan" class="form-control">
+											<input type="text" name="nama_lap" placeholder="Nama Lapangan" class="form-control" required>
 										</p>
 										<p>
 											<label>Deskripsi<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control">
+											<input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control" required>
 										</p>
 										<br>
 										<h4><strong>Tarif/Jam</strong></h4>
 										<p>
 											<label>Pagi<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="pagi" placeholder="Tarif Pagi" class="form-control">
+											<input type="text" name="pagi" placeholder="Tarif Pagi" class="form-control" required>
 										</p>
 										<p>
 											<label>Siang<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="siang" placeholder="Tarif Siang" class="form-control">
+											<input type="text" name="siang" placeholder="Tarif Siang" class="form-control" required>
 										</p>
 										<p>
 											<label>Malam<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="malam" placeholder="Tarif Malam" class="form-control">
+											<input type="text" name="malam" placeholder="Tarif Malam" class="form-control" required>
 										</p>
 										<p>
 											<label>Gambar Lapangan<span class="text-danger">*</span></label>

@@ -2,6 +2,13 @@
 <div id="primary">
 	<content id="site-content">
 		<div class="content">
+			<div class="page-top">
+				<div class="container">
+					<div id="breadcrumb">
+						
+					</div>
+				</div>
+			</div>
 			<div class="page-main">
 				<div class="container">
 					<div class="entry-content">
@@ -36,17 +43,14 @@
 											</div>
 										</div>
 									</div>
-
-
 								</div>
 
 									</div>
 								</div>
 							</div>
 						</div>
+
+
 					</div>
-				</div>
-			</div>
-		</div>
 	</content>
 </div>

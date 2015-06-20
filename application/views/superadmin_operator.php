@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="member-header">
-				<h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2>
+				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
 				<ul>
@@ -43,7 +43,7 @@
 									<tr>
 										<td><?= $row['nama_futsal'];?></td>
 										<td><?= $row['alamat'];?></td>
-										<td><?= $row['id_kota']; ?></td>
+										<td><?= $row['kota']; ?></td>
 										<td><?= $row['no_rek']; ?></td>
 										<td><?= $row['phone'];?></td>
 										<td><?= $row['deskripsi'];?></td>

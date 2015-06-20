@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="member-header">
-				<h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2>
+				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
 				<ul>
@@ -31,6 +31,7 @@
 										<th>NAMA TEAM</th>
 										<th>LAPANGAN</th>
 										<th>TGL</th>
+										<th>WAKTU BOOKING</th>
 										<th>JAM</th>
 										<th>HARGA</th>
 										<th>BUKTI KONFIRMASI</th>
@@ -45,9 +46,11 @@
 										<td><?= $row['team'];?></td>
 										<td><?= $row['lapangan']; ?></td>
 										<td><?= $row['tgl']; ?></td>
+										<td><?= $row['waktu_booking']; ?></td>
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
-										<td><?= $row['gambar']; ?></td>
+										<!-- <td><img src="<?= base_url('assets/image/konfirmasi/'.$row['gambar']); ?>"></td> -->
+										<td><a href="<?= base_url('assets/image/konfirmasi/'.$row['gambar']); ?>"><?= $row['gambar']; ?></a></td>
 										<?php if($row['status'] !="booked"): ?>
 										<td>
 											<a href="<?= base_url('admin/konfirmasi_status');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi</a>

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="member-header">
-				<h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2>
+				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
 				<ul>
@@ -21,6 +21,8 @@
 								<span>RIWAYAT TRANSAKSI</span>
 							</h2>
 						</div>
+						<label><span class="text-danger">*</span> Pembayaran dan upload bukti pembayaran maksimal 2jam setelah melakukan pemesanan</label>
+						<p> </p>
 						<div id="transaksi">
 							<table>
 								<thead>
@@ -31,8 +33,9 @@
 										<th>TGL</th>
 										<th>JAM</th>
 										<th>HARGA</th>
-										<th>KONFIRMASI</th>
-									</tr>
+										<th>STATUS</th>
+										<th> </th>
+									</tr> 
 								</thead>
 								<tbody>
 									<?php foreach ($data as $row) {
@@ -44,8 +47,9 @@
 										<td><?= $row['tgl']; ?></td>
 										<td><?= $row['jam'];?></td>
 										<td><?= $row['harga'];?></td>
+										<td><?= $row['status'];?></td>
 										<?php if($row['status'] !="booked"): ?>
-										<td><a href="<?= base_url('member/konfirmasi');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Konfirmasi Pembayaran</a></td>
+										<td><a href="<?= base_url('member/konfirmasi');?>?no=<?= $row['id_transaksi'];?>" class="btn btn-success">Uplad bukti Pembayaran</a></td>
 										<?php else : ?>
 										<td>Sudah Dikonfirmasi</td>
 										<?php endif; ?>

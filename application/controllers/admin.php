@@ -49,12 +49,42 @@
 			$this->load->view('view_lapangan',$data);
 			$this->load->view('footer');
 		}
-
 		public function delete_lap()
 		{
 			$id_lap=$_GET['no'];
 			$this->admin_model->delete_lap($id_lap);
 			redirect('admin/lapangan');
+		}
+		public function tambah_lap()
+		{
+			$this->load->view('header_admin');
+			$this->load->view('tambah_lapangan');
+			$this->load->view('footer');
+		}
+		public function insert_lap()
+		{
+			$this->do_upload();
+			$this->admin_model->insert_lap();
+			redirect('admin/lapangan');
+		}
+		public function edit_lap()
+		{
+			$id_lap=$_GET['no'];
+			$data["lapangan"] = $this->admin_model->get_lapangan($id_lap);
+
+			$this->load->view('header_admin');
+			$this->load->view('update_lapangan',$data);
+			$this->load->view('footer');
+		}
+		public function update_lap()
+		{
+			$id_lap=$_GET['no'];
+			$result=$this->admin_model->update_lap($id_lap,$_POST['nama_lap'],$_POST['deskripsi'],
+			$_POST['pagi'],$_POST['siang'],$_POST['malam']);
+		
+			if($result){
+				redirect('admin/lapangan');
+			}
 		}
 
 		public function do_upload()
@@ -68,12 +98,12 @@
 
 			// $this->load->model('Crud_model','crud',TRUE);
 			// $this->crud->operator_insert();
-
+ 	
 			$this->load->library('upload', $config);
 
 			if (!$this->upload->do_upload())
 			{
-			$this->load->view('konfirmasi_bayar');
+				$this->load->view('konfirmasi_bayar');
 			}
 			else
 			{
@@ -87,41 +117,7 @@
 			}
 		}
 
-		public function tambah_lap()
-		{
-			$this->load->view('header_admin');
-			$this->load->view('tambah_lapangan');
-			$this->load->view('footer');
-		}
-
-		public function insert_lap()
-		{
-			$this->do_upload();
-			$this->admin_model->insert_lap();
-			redirect('admin/lapangan');
-		}
-
-		public function edit_lap()
-		{
-			$id_lap=$_GET['no'];
-			$data["lapangan"] = $this->admin_model->get_lapangan($id_lap);
-
-			$this->load->view('header_admin');
-			$this->load->view('update_lapangan',$data);
-			$this->load->view('footer');
-		}
-
-		public function update_lap()
-		{
-			$id_lap=$_GET['no'];
-			$result=$this->admin_model->update_lap($id_lap,$_POST['nama_lap'],$_POST['deskripsi'],
-			$_POST['pagi'],$_POST['siang'],$_POST['malam']);
 		
-			if($result){
-				redirect('admin/lapangan');
-			}
-		}
-
 		public function password()
 		{
 			$data['user'] = $this->admin_model->change_password();
@@ -133,13 +129,6 @@
 		{
 			$result = $this->admin_model->update_password($_POST['username'],$_POST['pass_lama'],$_POST['pass_baru'],$_POST['pass_baru2']);
 
-			// if($result == 'FALSE'){
-			// 	// $data['alert'] = "Coba Alert";
-			// 	redirect('admin/password');
-			// }
-			// else {
-			// 	redirect('admin');
-			// }
 			if($result){
 				redirect('admin');
 			}
@@ -176,11 +165,7 @@
 		public function filter_bln()
 		{
 			$bln = $this->input->post('id_bln');
-			// $bln=2;
 			$data = $this->admin_model->laporan($bln);
-
-			// print_r($data);
-			// die();
 			echo '<table>
 						<thead>
 							<tr>

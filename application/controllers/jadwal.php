@@ -24,13 +24,22 @@ class Jadwal extends CI_Controller
 		$this->load->model('jadwal_model');
 		$transaksi = $this->jadwal_model->list_transaksi($id_lap,$tgl);
 		// $namateam = $transaksi['nama_team'];
+		// foreach ($transaksi as $key) {
+		// 	print_r($key[0]);	# code...
+		// }
+		// print_r($transaksi[0]['nama_team']);
+		// die();
+
 		for ($i=0; $i < count($transaksi) ; $i++) { 
 				$jam[]=$transaksi[$i]['jam'];
 				$stat[]=$transaksi[$i]['status'];
-				$team[]=$transaksi[$i]['nama_team'];
+				// $team[]=$transaksi['nama_team'];
 				$lap[]=$transaksi[$i]['id_lapangan'];
 
 			}
+
+		// print_r($team);
+		// die();
 
 	// compare jam di t_transaksi dengan daftar jam
 		foreach($waktu as $t) {
@@ -38,15 +47,19 @@ class Jadwal extends CI_Controller
 		        $button[]="disabled";
 		        $status[] = "Booked";
 		        $tombol[] = "Booked";
-		        $namateam[] = $team;
+		        // $namateam[] = $transaksi[$t]['nama_team'];
 		    } else {
 		        $button[]="";
 		        $status[] = "Free";
 		        $namateam[] = "Free";
 		        $tombol[] = "Booking";
 		    }
-		}	
+		}
 
+		// foreach ($namateam as $key) {
+		// 	print_r($key);	# code...
+		// }		
+		// die();
 
 
 	// data lapangan
@@ -87,15 +100,18 @@ class Jadwal extends CI_Controller
 	}
 
 	public function pesan(){
-		
-		$id_lap = $_GET['id_lap'];
-		$id_futsal = $_GET['id_futsal'];
-		$jam = $_GET['jam'];
-		$tgl= $_GET['tgl'];
+		if(!$this->session->userdata('akun')){
+			redirect('futsal/login');
+		}else{	
+			$id_lap = $_GET['id_lap'];
+			$id_futsal = $_GET['id_futsal'];
+			$jam = $_GET['jam'];
+			$tgl= $_GET['tgl'];
 
-		$this->load->model('jadwal_model');
-		$this->jadwal_model->pesan($id_lap,$id_futsal,$jam,$tgl);
-		redirect('member');
+			$this->load->model('jadwal_model');
+			$this->jadwal_model->pesan($id_lap,$id_futsal,$jam,$tgl);
+			redirect('member');
+		}
 	}
 
 }

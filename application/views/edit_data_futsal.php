@@ -40,13 +40,13 @@
 										<p>
 											<label>Nama Futsal<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="nama_futsal" placeholder="Nama Futsal" class="form-control" value="<?= $row['nama'];?>">
+											<input type="text" name="nama_futsal" placeholder="Nama Futsal" class="form-control" value="<?= $row['nama'];?>" required>
 										</p>
 										<p>
 											<label>Alamat<span class="text-danger">*</span></label>
 											<br>
 											<!-- <input type="text" name="username" placeholder="Email" class="form-control"> -->
-											<textarea input="text" name="alamat" rows="3" class="form-control" placeholder="Alamat"><?= $row['alamat'];?></textarea>
+											<textarea input="text" name="alamat" rows="3" class="form-control" placeholder="Alamat" required><?= $row['alamat'];?></textarea>
 										</p>
 										<p>
 											
@@ -67,8 +67,8 @@
 														<div id="map" style="width: 500px; height: 300px;"></div> 												        
 										        	</div>												
 											<br>
-											<label>Latitude : </label><input type="text" name='latitude' id='latitude' class="form-control" placeholder="Latitude">
-											<label>Latitude : </label><input type="text" name='longitude' id='longitude' class="form-control" placeholder="Longitude">
+											<label>Latitude : </label><input type="text" name='latitude' id='latitude' class="form-control" placeholder="Latitude" required>
+											<label>Latitude : </label><input type="text" name='longitude' id='longitude' class="form-control" placeholder="Longitude" required>
 
 											<script type="text/javascript">
 															    //* Fungsi untuk mendapatkan nilai latitude longitude
@@ -117,18 +117,18 @@
 										<p>
 											<label>Nomor Rekening<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="no_rek" placeholder="Nomor Rekening" class="form-control" value="<?= $row['rekening'];?>">
+											<input type="text" name="no_rek" placeholder="Nomor Rekening" class="form-control" value="<?= $row['rekening'];?>" required>
 										</p>
 										<p>
 											<label>Nomor Telepon<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="phone" placeholder="Nomor Telepon" class="form-control" value="<?= $row['phone']; ?>">
+											<input type="text" name="phone" placeholder="Nomor Telepon" class="form-control" value="<?= $row['phone']; ?>" required>
 										</p>
 										<p>
 											<label>Deskripsi<span class="text-danger">*</span></label>
 											<br>
 											<!-- <input type="text" name="username" placeholder="Email" class="form-control"> -->
-											<textarea input="text" name="deskripsi" rows="3" class="form-control" placeholder="Deskripsi"><?= $row['deskripsi']; ?></textarea>
+											<textarea input="text" name="deskripsi" rows="3" class="form-control" placeholder="Deskripsi" required><?= $row['deskripsi']; ?></textarea>
 										</p>
 										<?php } ?>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="SAVE"></p>

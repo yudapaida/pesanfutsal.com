@@ -25,29 +25,29 @@
 										<p>
 											<label>Nama Lapangan<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="nama_lap" placeholder="Nama Lapangan" class="form-control" value="<?= $data['nama_lap'];?>">
+											<input type="text" name="nama_lap" placeholder="Nama Lapangan" class="form-control" value="<?= $data['nama_lap'];?>" required>
 										</p>
 										<p>
 											<label>Deskripsi<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control" value="<?= $data['deskripsi'];?>">
+											<input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control" value="<?= $data['deskripsi'];?>" required>
 										</p>
 										<br>
 										<h4><strong>Tarif/Jam</strong></h4>
 										<p>
 											<label>Pagi<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="pagi" placeholder="Tarif Pagi" class="form-control" value="<?= $data['pagi'];?>">
+											<input type="text" name="pagi" placeholder="Tarif Pagi" class="form-control" value="<?= $data['pagi'];?>" required>
 										</p>
 										<p>
 											<label>Siang<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="siang" placeholder="Tarif Siang" class="form-control" value="<?= $data['siang'];?>">
+											<input type="text" name="siang" placeholder="Tarif Siang" class="form-control" value="<?= $data['siang'];?>" required>
 										</p>
 										<p>
 											<label>Malam<span class="text-danger">*</span></label>
 											<br>
-											<input type="text" name="malam" placeholder="Tarif Malam" class="form-control" value="<?= $data['malam'];?>">
+											<input type="text" name="malam" placeholder="Tarif Malam" class="form-control" value="<?= $data['malam'];?>" required>
 										</p>
 										<?php } ?>
 										<p><input type="submit" class="btn btn-lg btn-primary" value="SAVE"></p>

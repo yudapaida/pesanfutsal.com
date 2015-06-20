@@ -1,3 +1,8 @@
+<style>
+     .error{
+      color:red;
+     }
+    </style>
 <div id="primary">
 	<content id="site-content">
 		<div class="content">
@@ -18,7 +23,10 @@
 							<div class="col-md-6 col-md-offset-3">
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">LOGIN</h3>
-									<span class="help-block">Login dengan alamat emain anda:</span>
+
+									<div class="error"><strong><?= $this->session->flashdata('flashSuccess') ?></strong></div>
+
+									<span class="help-block">Login dengan alamat email anda:</span>
 									<form action="<?php echo base_url();?>login_ctr/masuk" method="POST">
 										<p><input type="email" name="username" placeholder="Email" class="form-control" required></p>
 										<p><input type="password" name="password" placeholder="Password" class="form-control" required></p>

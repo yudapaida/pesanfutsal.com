@@ -55,6 +55,10 @@ class Jadwal_model extends CI_Model {
         $harga_lap = $this->db->query($queryharga)->result_array();
         // print_r($harga_lap[0][$harga]);
         // die();
+        date_default_timezone_set('Asia/Jakarta');
+        $waktu_booking = date("H:i:s");
+        // print_r($waktu_booking);
+        // die();
 
         $data['id_futsal'] = $id_futsal;
         $data['id_lapangan'] = $id_lap;
@@ -63,6 +67,7 @@ class Jadwal_model extends CI_Model {
         $data['harga'] = $harga_lap[0][$harga];
         $data['nama_team'] = $team;
         $data['tgl_booking'] = $tgl;
+        $data['waktu_booking'] = $waktu_booking;
         
         $result = $this->db->insert('transaksi',$data);
 

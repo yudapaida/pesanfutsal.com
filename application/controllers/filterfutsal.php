@@ -31,7 +31,7 @@ class Filterfutsal extends CI_Controller
 												</div>
 											</div>
 											<div class="gerai-main">
-												<div class="gerai-thumb coba">
+												<div class="gerai-thumb profile">
 													<a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">
 														<img src="'.base_url('assets/image/futsal/'.$item['gambar']).'">
 													</a>
@@ -69,7 +69,7 @@ class Filterfutsal extends CI_Controller
 												</div>
 											</div>
 											<div class="gerai-main">
-												<div class="gerai-thumb coba">
+												<div class="gerai-thumb profile">
 													<a href="'.base_url('futsal/profile').'?id='.$item['id_futsal'].'">
 														<img src="'.base_url('assets/image/futsal/'.$item['gambar']).'">
 													</a>

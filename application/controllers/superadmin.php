@@ -66,7 +66,6 @@
 			}
 		}
 
-
 		public function hapus_member()
 		{
 			$id_user = $_GET['no'];

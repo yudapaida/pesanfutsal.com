@@ -40,37 +40,37 @@
 									<p>
 										<label>First Name<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="first_name" placeholder="First Name" value="<?= $row['first']; ?>" class="form-control">
+										<input type="text" name="first_name" placeholder="First Name" value="<?= $row['first']; ?>" class="form-control" required>
 									</p>
 									<p>
 										<label>Last Name<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="last_name" placeholder="Last Name" value="<?= $row['last']; ?>" class="form-control">
+										<input type="text" name="last_name" placeholder="Last Name" value="<?= $row['last']; ?>" class="form-control" required>
 									</p>
 									<p>
 										<label>ID Card<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="id_card" placeholder="First Name" value="<?= $row['card']; ?>" class="form-control">
+										<input type="text" name="id_card" placeholder="First Name" value="<?= $row['card']; ?>" class="form-control" required>
 									</p>
 									<p>
 										<label>Date of Birth<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" id="tanggal" name="ttl" placeholder="yyyy-mm-dd" value="<?= $row['ttl']; ?>" class="form-control">
+										<input type="text" id="tanggal" name="ttl" placeholder="yyyy-mm-dd" value="<?= $row['ttl']; ?>" class="form-control" required>
 									</p>
 									<p>
 										<label>Team Name<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="team_name" placeholder="Team Name" value="<?= $row['team'];?>" class="form-control">
+										<input type="text" name="team_name" placeholder="Team Name" value="<?= $row['team'];?>" class="form-control" required>
 									</p>
 									<p>
 										<label>Address<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="address" placeholder="Address" value="<?= $row['address']; ?>" class="form-control">
+										<input type="text" name="address" placeholder="Address" value="<?= $row['address']; ?>" class="form-control" required>
 									</p>
 									<p>
 										<label>Mobile Phone<span class="text-danger">*</span></label>
 										<br>
-										<input type="text" name="phone" placeholder="Mobile Phone" value="<?= $row['phone']; ?>" class="form-control">
+										<input type="text" name="phone" placeholder="Mobile Phone" value="<?= $row['phone']; ?>" class="form-control" required>
 									</p>
 									<?php } ?>
 									<p><input type="submit" class="btn btn-lg btn-primary" value="SAVE"></p>

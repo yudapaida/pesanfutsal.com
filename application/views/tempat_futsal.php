@@ -4,7 +4,8 @@
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.core.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/ui.datepicker.js');?>"></script>
     <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- marai error datepicker -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 	<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 
 	<script type="text/javascript">
@@ -98,7 +99,7 @@ foreach ($futsal as $item ){
 										<div class="gerai-images">
 											
 
-											<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+											<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0">
 											  <!-- Indicators -->
 											  <ol class="carousel-indicators">
 											  	<?php for($i=0; $i<count($datalap);$i++) {

@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="member-header">
-				<h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2>
+				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
 				<ul>

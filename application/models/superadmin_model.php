@@ -12,7 +12,7 @@
 
 		public function view_admin()
 		{
-			$query = $this->db->query('SELECT * FROM operator');
+			$query = $this->db->query('SELECT id_futsal,id_user,nama_futsal,alamat, lokasi.nama_lokasi as kota,no_rek,phone,deskripsi,status FROM operator,lokasi WHERE operator.id_kota=lokasi.id_lokasi');
 			return $query->result_array();
 		}
 
