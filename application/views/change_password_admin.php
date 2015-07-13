@@ -3,7 +3,7 @@
 		<div class="page-main">
 			<div class="container">
 				<div id="breadcrumb">
-					<p><a href="<?= base_url();?>">Home</a>
+					<p><a href="<?= base_url('admin');?>">Home</a>
 						<i class="fa fa-angle-right"></i>
 						<a href="<?= base_url('admin');?>">Admin Area</a>
 						<i class="fa fa-angle-right"></i>

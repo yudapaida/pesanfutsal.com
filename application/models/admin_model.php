@@ -18,6 +18,14 @@
 			return $data->result_array();
 		}
 
+		public function view_transaksi()
+		{
+			$username = $this->session->userdata('akun');
+			$query = "SELECT transaksi.id_transaksi, member.first_name, member.last_name, transaksi.nama_team, lapangan.nama_lap, transaksi.tgl_booking, transaksi.waktu_booking, transaksi.jam, transaksi.harga, transaksi.status FROM transaksi, member,lapangan, user, operator WHERE lapangan.id_lap=transaksi.id_lapangan AND transaksi.id_member=member.id_member AND transaksi.status!='booked' AND operator.id_futsal=transaksi.id_futsal AND operator.id_user=user.id_user AND user.username='$username' order by id_transaksi;";
+			$data = $this->db->query($query);
+			return $data->result_array();
+		}
+
 		public function konfirmasi($id_transaksi)
 		{
 			$query = "UPDATE transaksi SET status='booked' WHERE id_transaksi=$id_transaksi";
@@ -27,7 +35,8 @@
 
 		public function hapus_transaksi($id_transaksi)
 		{
-			$query = "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'";
+			// $query = "DELETE FROM transaksi WHERE id_transaksi='$id_transaksi'";
+			$query = "UPDATE transaksi SET status='cancel' WHERE id_transaksi='$id_transaksi'";
 			$result = $this->db->query($query);
 			return TRUE;
 		}
@@ -152,12 +161,12 @@
 		return TRUE;
 		}
 
-		public function laporan($bln)
+		public function laporan($bln,$thn)
 		{
 			$username = $this->session->userdata('akun');
 
-			if($bln==0){$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND user.username='$username' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan ";}
-			else {$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND month(transaksi.tgl_booking)='$bln' AND user.username='$username' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan";}
+			if($bln==0){$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND user.username='$username' AND year(transaksi.tgl_booking)='$thn' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan ";}
+			else {$query = "SELECT transaksi.id_lapangan, lapangan.nama_lap, count(transaksi.id_transaksi) as jum, sum(transaksi.harga) as total from lapangan, transaksi,user,operator where lapangan.id_lap = transaksi.id_lapangan AND month(transaksi.tgl_booking)='$bln' AND year(transaksi.tgl_booking)='$thn' AND user.username='$username' AND user.id_user=operator.id_user AND operator.id_futsal=transaksi.id_futsal group by transaksi.id_lapangan";}
 
 			$data = $this->db->query($query);
 			// print_r($data);

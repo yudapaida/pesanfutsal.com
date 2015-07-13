@@ -6,12 +6,15 @@
     <script src="<?php echo base_url('assets/development-bundle/ui/i18n/ui.datepicker-id.js');?>"></script>
     <script type="text/javascript">
 		//perhatikan, kuncinya adalah disini
-        function fungsifilter(bln){
+        function fungsifilter(){
+        	var bln=$("#bulan option:selected").val();
+        	var thn=$("#tahun option:selected").val();
         	
            $.ajax({
                 type: "POST",
                 url: "<?php echo site_url('admin/filter_bln');?>",
-                data:"id_bln="+bln,
+                data:{bln: bln,
+                	  thn: thn},
                 success: function(data){
                     $("#laporan").html(data); 
                     // alert('sukses vroh');    
@@ -36,12 +39,12 @@
 				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
-				<ul>
-					<!-- <li><a href="<?= base_url('futsal/admin');?>">Home</a></li> -->
-					<li><a href="<?= base_url('admin');?>">Transaksi</a></li>
+				<ul>					
+					<li><a href="<?= base_url('admin/transaksi');?>">Transaksi</a></li>
+					<li><a href="<?= base_url('admin');?>">konfirmasi</a></li>					
 					<li><a href="<?= base_url('admin/lapangan');?>">Lapangan</a></li>
 					<li><a href="<?= base_url('admin/profile');?>">Edit Data Futsal</a></li>
-					<li><a href="#" style="color: #008000;">Laporan</a></li>
+					<li><a href="<?= base_url('admin/laporan');?>">Laporan</a></li>
 					<li><a href="<?= base_url('admin/password');?>">Change Password</a></li>
 					<!-- <li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li> -->
 				</ul>
@@ -57,9 +60,20 @@
 							<div class="row">
 								<div class="filter-menu">
 									<?php
+									// bulan
 										$bln=array(0=>"Semua","Januari","Februari","Maret","April","Mei","Juni","July","Agustus","September","Oktober","November","Desember");
-										$js='onChange="fungsifilter(this.value);"'; 
-										echo form_dropdown('bulan',$bln,'',$js);
+									// tahun	
+										for ($i=date('Y'); $i>=date('Y')-32 ; $i-=1) {
+											$thn[$i]=$i;
+										}
+
+										$jsthn = 'id="tahun" onChange="fungsifilter();"';
+										$jsbln = 'id="bulan" onChange="fungsifilter();"'; 
+										
+										echo form_dropdown('bulan',$bln,'',$jsbln);
+										echo " ";
+										echo " ";
+										echo form_dropdown('tahun',$thn,'',$jsthn);
 									?>
 								</div>
 								<br>

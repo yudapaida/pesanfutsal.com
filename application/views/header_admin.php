@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Google Font -->
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oleo+Script|Oregano|Open+Sans:400italic,700italic,400,700">
+		<!-- load buat modal -->
+		<!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css');?>"> -->
+
 		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
 		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">

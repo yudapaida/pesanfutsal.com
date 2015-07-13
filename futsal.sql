@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2015 pada 12.29
+-- Waktu pembuatan: 06 Jul 2015 pada 07.35
 -- Versi Server: 5.5.27
 -- Versi PHP: 5.4.7
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `konfirmasi` (
   `id_transaksi` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_konfirmasi`),
   KEY `id_transaksi` (`id_transaksi`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data untuk tabel `konfirmasi`
@@ -48,10 +48,12 @@ CREATE TABLE IF NOT EXISTS `konfirmasi` (
 INSERT INTO `konfirmasi` (`id_konfirmasi`, `nama_member`, `nama_team`, `lokasi`, `lapangan`, `tgl_booking`, `jam`, `harga`, `gambar`, `id_transaksi`) VALUES
 (3, 'ismail adima', 'black team', 'soccer', 'Lapangan B', '2015-02-19', '20.00', '120000', 'konfirmasi1.jpg', 2),
 (4, 'ismail adima', 'black team', 'soccer', 'Lapangan B', '2015-02-28', '20.00', '120000', 'konfirmasi11.jpg', 3),
-(5, 'yuda hermawan', 'G82', 'djuragan', 'Lapangan 1', '2015-02-19', '07.00', '100000', 'konfirmasi12.jpg', 4),
-(6, 'yuda hermawan', 'G82', 'jakal 7', 'Lapangan 3', '2015-02-25', '21.00', '140000', 'konfirmasi13.jpg', 5),
 (8, 'ismail adima', 'black team', 'komsi', 'lapangan 1', '2015-02-25', '08.00', '100000', 'konfirmasi15.jpg', 7),
-(9, 'yuda hermawan', 'G82', 'soccer', 'lapangan A', '2015-06-20', '07.00', '90000', 'Koala.jpg', 12);
+(9, 'yuda hermawan', 'G82', 'soccer', 'lapangan A', '2015-06-20', '07.00', '90000', 'Koala.jpg', 12),
+(10, 'yuda hermawan', 'G82', 'Neo', 'Lapangan A', '2015-06-21', '07.00', '100000', 'konfirmasi16.jpg', 14),
+(14, 'yuda hermawan', 'G82', 'Goldengoal ', 'Lapangan A', '2015-06-24', '08.00', '100000', 'anu.jpg', 18),
+(15, 'rizal wildan', 'footer', 'Goldengoal ', 'Lapangan A', '2015-06-24', '09.00', '100000', 'anu1.jpg', 19),
+(16, 'rizal wildan', 'footer', 'Goldengoal ', 'Lapangan A', '2015-06-25', '07.00', '100000', 'anu2.jpg', 20);
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `lapangan` (
   `id_futsal` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_lap`),
   KEY `id_futsal` (`id_futsal`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data untuk tabel `lapangan`
@@ -78,14 +80,15 @@ CREATE TABLE IF NOT EXISTS `lapangan` (
 
 INSERT INTO `lapangan` (`id_lap`, `nama_lap`, `deskripsi`, `pagi`, `siang`, `malam`, `gambar`, `id_futsal`) VALUES
 (1, 'lapangan A', 'rumput sintetis', 90000, 100000, 120000, 'lap_soccer.jpg', 1),
-(2, 'Lapangan 1', 'rumput sintetis', 80000, 90000, 110000, 'lap_jakal.jpg', 2),
-(3, 'Lapangan 2', 'rumput sintetis', 80000, 90000, 120000, 'lap_jakal2.jpg', 2),
-(4, 'Lapangan 3', 'AVA Court', 100000, 120000, 140000, 'lap_jakal3.jpg', 2),
-(5, 'Lapangan 1', 'rumput sintetis', 100000, 110000, 120000, 'lap_djuragan.jpg', 3),
 (6, 'Lapangan B', 'rumput sintetis', 90000, 100000, 120000, 'lap_soccer2.jpg', 1),
 (7, 'lapangan 1', 'rumput sintetis', 100000, 110000, 120000, 'lap_soccer21.jpg', 4),
 (8, 'Lapangan A', 'Rumput Sintetis', 100000, 120000, 150000, '0.jpg', 6),
-(9, 'Lapangan B', 'Rumput Sintetis', 100000, 120000, 150000, '1.jpg', 6);
+(9, 'Lapangan B', 'Rumput Sintetis', 100000, 120000, 150000, '1.jpg', 6),
+(13, 'lapangan 1', 'Rumput Sintetis', 100000, 200000, 300000, '11.jpg', 3),
+(14, 'Lapangan 2', 'Rumput Sintetis', 100000, 200000, 300000, '2.jpg', 3),
+(15, 'Lapangan A', 'Rumput Sintetis', 100000, 200000, 300000, '6.jpg', 7),
+(16, 'Lapangan 1', 'Rumput Sintetis', 100000, 200000, 300000, '22.jpg', 2),
+(17, 'Lapangan 3', 'Rumput Sintetis', 100000, 200000, 300000, '23.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -96,7 +99,14 @@ INSERT INTO `lapangan` (`id_lap`, `nama_lap`, `deskripsi`, `pagi`, `siang`, `mal
 CREATE TABLE IF NOT EXISTS `lokasi` (
   `id_lokasi` int(10) NOT NULL AUTO_INCREMENT,
   `nama_lokasi` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_lokasi`)
+  PRIMARY KEY (`id_lokasi`),
+  UNIQUE KEY `nama_lokasi_2` (`nama_lokasi`),
+  UNIQUE KEY `nama_lokasi_3` (`nama_lokasi`),
+  UNIQUE KEY `nama_lokasi_4` (`nama_lokasi`),
+  KEY `id_kota` (`id_lokasi`),
+  KEY `nama_lokasi` (`nama_lokasi`),
+  KEY `id_kota_2` (`id_lokasi`),
+  KEY `id_kota_3` (`id_lokasi`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
@@ -175,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   `id_user` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_member`),
   KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `member`
@@ -183,7 +193,8 @@ CREATE TABLE IF NOT EXISTS `member` (
 
 INSERT INTO `member` (`id_member`, `first_name`, `last_name`, `id_card`, `ttl`, `team_name`, `address`, `phone`, `id_user`) VALUES
 (1, 'yuda', 'hermawan', '12/336932/SV/01885', '1992-11-28', 'G82', 'sendowo G82 Sleman', '+6285747586186', 2),
-(2, 'ismail', 'adima', '12/336909/SV/01871', '1994-05-15', 'black team', 'sendowo G82 Sleman', '+628156706780', 3);
+(2, 'ismail', 'adima', '12/336909/SV/01871', '1994-05-15', 'black team', 'sendowo G82 Sleman', '+628156706780', 3),
+(3, 'rizal', 'wildan', '12/336932/SV/01885', '1995-06-30', 'footer', 'sendowo g82', '085747586186', 12);
 
 -- --------------------------------------------------------
 
@@ -205,8 +216,10 @@ CREATE TABLE IF NOT EXISTS `operator` (
   `status` enum('unconfirmed','confirmed') NOT NULL DEFAULT 'unconfirmed',
   `id_user` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_futsal`),
-  KEY `id_user` (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  KEY `id_user` (`id_user`),
+  KEY `id_kota` (`id_kota`),
+  KEY `id_kota_2` (`id_kota`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data untuk tabel `operator`
@@ -216,9 +229,9 @@ INSERT INTO `operator` (`id_futsal`, `nama_futsal`, `alamat`, `id_kota`, `latitu
 (1, 'soccer', 'Jl Kaliurang km 6', 0, '-7.743821243966949', '110.36261806347659', '1234567', '0274113333', 'Buka dari jam 07.00 - 22.00', 'soccer.jpg', 'confirmed', 4),
 (2, 'jakal 7', 'Jl kaliurang km 7', 20, '-7.7492642775907', '110.38536319592288', '12345', '0274111333', 'Buka dari jam 07.00 - 22.00', 'jakal7.jpg', 'confirmed', 5),
 (3, 'djuragan', 'Jl Pandega Martha no.55', 46, '-7.755812834160202', '110.3783250794678', '12345', '0274111444', 'Buka dari jam 07.00 - 22.00', 'djuragan.jpg', 'confirmed', 6),
-(4, 'komsi', 'Komsi', 12, '', '', '0808080808', '08080808080', 'Komsi', 'lap_jakal31.jpg', 'confirmed', 7),
-(5, 'map', 'map', 1, '-7.837363561988365', '110.36433467724612', 'map', 'map', 'map', 'jalur_mini1.JPG', 'confirmed', 9),
-(6, 'Neo', 'JL. C. Simanjuntak, No. 91, Daerah Istimewa Yogyakarta, Indonesia', 20, '-7.77808885664791', '110.37323424675753', '12345', '0274543476', 'Buka dari jam 07.00 - 23.00', 'neo.jpg', 'confirmed', 10);
+(4, 'komsi', 'Komsi', 12, '', '', '0808080808', '08080808080', 'Komsi', 'komsi.jpg', 'confirmed', 7),
+(6, 'Neo', 'JL. C. Simanjuntak, No. 91, Daerah Istimewa Yogyakarta, Indonesia', 20, '-7.77808885664791', '110.37323424675753', '12345', '0274543476', 'Buka dari jam 07.00 - 23.00', 'neo.jpg', 'confirmed', 10),
+(7, 'Goldengoal ', 'JL. Pogung Raya, pandega marta, Pogung Baru', 20, '-7.754367057709006', '110.38160810330203', '1234567', '02746550505', 'Buka dari jam 08.00 - 23.00', 'goldengoal.jpg', 'confirmed', 11);
 
 -- --------------------------------------------------------
 
@@ -235,13 +248,13 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
   `waktu_booking` varchar(255) NOT NULL,
   `jam` varchar(100) DEFAULT NULL,
   `harga` int(10) NOT NULL,
-  `status` enum('waiting','booked') NOT NULL DEFAULT 'waiting',
+  `status` enum('waiting','booked','cancel') NOT NULL DEFAULT 'waiting',
   `nama_team` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_transaksi`),
   KEY `id_futsal` (`id_futsal`),
   KEY `id_lapangan` (`id_lapangan`),
   KEY `id_member` (`id_member`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data untuk tabel `transaksi`
@@ -250,14 +263,14 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 INSERT INTO `transaksi` (`id_transaksi`, `id_futsal`, `id_lapangan`, `id_member`, `tgl_booking`, `waktu_booking`, `jam`, `harga`, `status`, `nama_team`) VALUES
 (2, 1, 6, 2, '2015-02-19', '', '20.00', 120000, 'booked', 'black team'),
 (3, 1, 6, 2, '2015-02-28', '', '20.00', 120000, 'booked', 'black team'),
-(4, 3, 5, 1, '2015-02-19', '', '07.00', 100000, 'booked', 'G82'),
-(5, 2, 4, 1, '2015-02-25', '', '21.00', 140000, 'waiting', 'G82'),
 (7, 4, 7, 2, '2015-02-25', '', '08.00', 100000, 'booked', 'black team'),
-(8, 3, 5, 1, '2015-04-28', '', '07.00', 100000, 'waiting', 'G82'),
-(9, 3, 5, NULL, '2015-04-28', '', '07.00', 100000, 'waiting', NULL),
-(10, 3, 5, 1, '2015-02-24', '', '17.00', 110000, 'waiting', 'G82'),
 (12, 1, 1, 1, '2015-06-20', '14:03:20', '07.00', 90000, 'booked', 'G82'),
-(13, 1, 1, 1, '2015-06-20', '14:58:02', '08.00', 90000, 'waiting', 'G82');
+(14, 6, 8, 1, '2015-06-21', '14:20:09', '07.00', 100000, 'waiting', 'G82'),
+(15, 6, 9, 1, '2015-06-24', '14:23:33', '07.00', 100000, 'cancel', 'G82'),
+(16, 3, 14, 1, '2015-06-22', '14:25:47', '07.00', 100000, 'waiting', 'G82'),
+(18, 7, 15, 1, '2015-06-24', '23:13:06', '08.00', 100000, 'booked', 'G82'),
+(19, 7, 15, 3, '2015-06-24', '23:20:42', '09.00', 100000, 'booked', 'footer'),
+(20, 7, 15, 3, '2015-06-25', '04:17:43', '07.00', 100000, 'booked', 'footer');
 
 -- --------------------------------------------------------
 
@@ -271,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(100) DEFAULT NULL,
   `role` enum('admin','operator','user') DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data untuk tabel `user`
@@ -286,8 +299,9 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
 (6, 'djuragan@gmail.com', '5c75760a7a8815e24f99525891f48883', 'operator'),
 (7, 'komsi', 'dc2ddf74718e7f2764de53a13d892200', 'operator'),
 (8, 'map', '1d78dc8ed51214e518b5114fe24490ae', 'operator'),
-(9, 'map', 'd41d8cd98f00b204e9800998ecf8427e', 'operator'),
-(10, 'neo@gmail.com', 'cb59608fced567a14b13a6e5c5c8a1d2', 'operator');
+(10, 'neo@gmail.com', 'cb59608fced567a14b13a6e5c5c8a1d2', 'operator'),
+(11, 'golden@gmail.com', 'c773fdef3889bdadbe809f1e8aaeea46', 'operator'),
+(12, 'rizal@getfooter.co', '150fb021c56c33f82eef99253eb36ee1', 'user');
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

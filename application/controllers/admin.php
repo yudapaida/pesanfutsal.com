@@ -22,7 +22,20 @@
 
 			$this->load->view('header_admin');
 			$this->load->view('admin_page',$data);
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
+		}
+
+		public function transaksi()
+		{
+			$data = $this->admin_model->view_transaksi();
+			$data['data'] = $data;
+			// print_r($data['data']);
+			// die();
+
+			$this->load->view('header_admin');
+			$this->load->view('admin_transaksi',$data);
+			$this->load->view('footer_admin');
+			
 		}
 
 		public function hapus_transaksi()
@@ -47,7 +60,7 @@
 
 			$this->load->view('header_admin');
 			$this->load->view('view_lapangan',$data);
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 		public function delete_lap()
 		{
@@ -59,7 +72,7 @@
 		{
 			$this->load->view('header_admin');
 			$this->load->view('tambah_lapangan');
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 		public function insert_lap()
 		{
@@ -74,7 +87,7 @@
 
 			$this->load->view('header_admin');
 			$this->load->view('update_lapangan',$data);
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 		public function update_lap()
 		{
@@ -123,7 +136,7 @@
 			$data['user'] = $this->admin_model->change_password();
 			$this->load->view('header_admin');
 			$this->load->view('change_password_admin',$data);
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 		public function update_password()
 		{
@@ -142,7 +155,7 @@
 			
 			$this->load->view('header_admin');
 			$this->load->view('edit_data_futsal', $datafutsal);
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 
 		public function update_profile()
@@ -159,13 +172,15 @@
 		{
 			$this->load->view('header_admin');
 			$this->load->view('laporan_admin');
-			$this->load->view('footer');
+			$this->load->view('footer_admin');
 		}
 
 		public function filter_bln()
 		{
-			$bln = $this->input->post('id_bln');
-			$data = $this->admin_model->laporan($bln);
+			$bln = $this->input->post('bln');
+			$thn = $this->input->post('thn');
+
+			$data = $this->admin_model->laporan($bln,$thn);
 			echo '<table>
 						<thead>
 							<tr>
@@ -174,25 +189,24 @@
 								<th> Total Transaksi </th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>';
+						<tbody>';
 			if($data){
 			foreach ($data as $key ) {
 				# code...
-				echo '
+				echo '<tr>
 								<td>'.$key['nama_lap'].'</td>
 								<td>'.$key['jum'].'</td>
 								<td> Rp '.$key['total'].'</td>
-				';
+					  </tr>';
 			}
 		}else{
-				echo '
+				echo '<tr>
 								<td> - </td>
 								<td> 0 </td>
 								<td> Rp.0 </td> 
-				';
+					  </tr>';
 		}
-			echo '</tr>
+			echo '
 						</tbody>
 					   </table>';
 			

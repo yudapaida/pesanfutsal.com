@@ -5,13 +5,13 @@
 				<!-- <h2>Selamat datang <?php echo $this->session->userdata('akun');?></h2> -->
 			</div>
 			<div class="member-nav">
-				<ul>
-					<!-- <li><a href="<?= base_url();?>">Home</a></li> -->
-					<li><a href="<?= base_url('admin');?>">Transaksi</a></li>
-					<li><a href="#" style="color: #008000;">Lapangan</a></li>
+				<ul>					
+					<li><a href="<?= base_url('admin/transaksi');?>">Transaksi</a></li>
+					<li><a href="<?= base_url('admin');?>">konfirmasi</a></li>					
+					<li><a href="<?= base_url('admin/lapangan');?>">Lapangan</a></li>
 					<li><a href="<?= base_url('admin/profile');?>">Edit Data Futsal</a></li>
 					<li><a href="<?= base_url('admin/laporan');?>">Laporan</a></li>
-					<li><a href="<?= base_url('member/password');?>">Change Password</a></li>
+					<li><a href="<?= base_url('admin/password');?>">Change Password</a></li>
 					<!-- <li><a href="<?= base_url('login_ctr/logout');?>">Logout</a></li> -->
 				</ul>
 			</div>

@@ -1,4 +1,4 @@
- <div class="page-top">
+  <div class="page-top">
 	<div class="container">
 		<div class="row">
 			<div class="member-header">
@@ -24,7 +24,7 @@
 								<span>DATA OPERATOR FUTSAL</span>
 							</h2>
 						</div>
-						<div id="transaksi">
+						<!-- <div id="transaksi"> -->
 							<table>
 								<thead>
 									<tr>

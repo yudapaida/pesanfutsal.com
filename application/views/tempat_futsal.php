@@ -1,3 +1,9 @@
+<?php
+// print_r($datalap[0]['gambar']);
+// die();
+
+?>
+
 <!DOCTYPE html>
 <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/development-bundle/themes/base/ui.all.css');?>" />
     <script src="<?php echo base_url('assets/development-bundle/jquery-1.8.0.min.js');?>"></script>
@@ -118,8 +124,9 @@ foreach ($futsal as $item ){
 											  	?>		
 													    
 													      <img src="<?= base_url('assets/image/futsal/'.$datalap[$i]['gambar']);?>" alt="...">
+													      <!-- <img src="<?= base_url('assets/image/futsal/lap_jakal.jpg');?>" alt="..."> -->
 													      <div class="carousel-caption">
-													          <h3>Caption Text</h3>
+													          <!-- <h3>Caption Text</h3> -->
 													      </div>
 													    </div>
 													
