@@ -10,19 +10,8 @@
 	function login($username, $password){
 		$sql = 'SELECT * FROM user WHERE username="'.$username.'" AND password="'.md5($password).'";';
 		$hasil=$this->db->query($sql);
-		
-	
-		//print hasil query
-		// foreach ($hasil->result() as $data) {
-		// 	print_r($data);
-		// 	print_r($data->username);
-		// }
-		// die();
 
 		if($hasil->num_rows() ==1){
-			// $data = array('username'=>$username, 'login'=>TRUE);
-			
-			$this->session->set_userdata('akun', $username);
 			
 			//return group users
 			foreach ($hasil->result_array() as $data) {

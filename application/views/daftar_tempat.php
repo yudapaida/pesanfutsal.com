@@ -48,7 +48,6 @@
         };
 	</script>
 
-
 <div class="top-content">
 	<div class="home-top-content">
 		<div class="search-form">

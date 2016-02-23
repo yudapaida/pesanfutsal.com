@@ -14,8 +14,8 @@ class Login_ctr extends CI_Controller {
 
 	public function masuk(){
 		//get input from user
-		$username= $_POST['username'];
-		$password= $_POST['password'];
+		$username= mysql_real_escape_string($_POST['username']);
+		$password= mysql_real_escape_string($_POST['password']);
 
 		//recaptcha
 
@@ -35,27 +35,38 @@ class Login_ctr extends CI_Controller {
 		// die();
 
 		
-			$this->load->model('login_model','login'); //rename login_model jadi login
+			$this->load->model('login_model','login'); 		//rename login_model jadi login
 			$data=$this->login->login($username,$password); //manggil model dan fungsinya
 
 			if($data==FALSE){
-				$this->session->set_flashdata('flashSuccess','username dan password salah !');
-				redirect('futsal/login');
+				// error messange
+				$data['error'] = "Username atau password salah.";
+
+				$this->load->view('header');
+				$this->load->view('login_page',$data);
+				$this->load->view('footer');
 			}
 			//direct ke halaman sesuai group usernya
 			if($data == "admin"){
-				// redirect('admin_ctr/view_operator');
+				
+				$this->session->set_userdata('akun', $username);
+				$this->session->set_userdata('level', $data);
 				redirect('superadmin');
 			}
 			if($data == "operator"){
-				// redirect('lapangan_crud/view_lap');
+				
+				$this->session->set_userdata('akun', $username);
+				$this->session->set_userdata('level', $data);
 				redirect('admin');
 			}
 			if($data == "user"){
+				
+				$this->session->set_userdata('akun', $username);
+				$this->session->set_userdata('level', $data);
 				redirect('futsal/listfutsal');
 			}
-			else{
-				// redirect('page_ctr/index');
+			else
+			{
 				"login gagal";
 			}				
 	}

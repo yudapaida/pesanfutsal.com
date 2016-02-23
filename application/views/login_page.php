@@ -24,7 +24,10 @@
 								<div class="well" style="backgroud-color: white;">
 									<h3 style="margin-top: 0px;">LOGIN</h3>
 
-									<div class="error"><strong><?= $this->session->flashdata('flashSuccess') ?></strong></div>
+									<!-- <div class="alert alert-danger"><?= $this->session->flashdata('flashSuccess') ?></div> -->
+									<?php if (isset($error)) { ?>
+										<div class="alert alert-danger"> <?php echo $error; ?></div>
+									<?php }?>
 
 									<span class="help-block">Login dengan alamat email anda:</span>
 									<form action="<?php echo base_url();?>login_ctr/masuk" method="POST">

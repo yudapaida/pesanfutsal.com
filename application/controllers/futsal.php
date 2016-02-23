@@ -19,6 +19,13 @@ class Futsal extends CI_Controller
 		$this->load->view('index',$data);
 	}
 
+	public function login()
+	{
+		$this->load->view('header');
+		$this->load->view('login_page');
+		$this->load->view('footer');
+	}
+
 	public function admin()
 	{
 		$this->load->view('index_admin');
@@ -44,14 +51,6 @@ class Futsal extends CI_Controller
 		$data['data'] = $this->lokasi_model->daftar_lokasi();
 		$this->load->view('header');
 		$this->load->view('admin_reg',$data);
-		$this->load->view('footer');
-	}
-
-
-	public function login()
-	{
-		$this->load->view('header');
-		$this->load->view('login_page');
 		$this->load->view('footer');
 	}
 
